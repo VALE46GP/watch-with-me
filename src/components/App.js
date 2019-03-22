@@ -8,8 +8,20 @@ class App extends Component {
         super(props);
         this.state = {
             searchInput: '',
-            all: [{title: 'Pootie Tang'}, {title: 'Cable Guy'}, {title: 'Raising Arizona'}],
-            results: [{title: 'Pootie Tang'}, {title: 'Cable Guy'}, {title: 'Raising Arizona'}],
+            all: [],
+            results: [{
+                title: 'Pootie Tang',
+                withwhom: ['Guillermo', 'Cynthia'],
+            }, {
+                title: 'Cable Guy',
+                withwhom: ['Guillermo', 'Cynthia'],
+            }, {
+                title: 'Raising Arizona',
+                withwhom: ['Guillermo'],
+            }, {
+                title: 'Wind River',
+                withwhom: [],
+            }],
         };
         this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
     }
@@ -26,7 +38,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Search handleChange={this.handleSearchInputChange}/>
-                {results.map(item => <ListItem item={item.title} key={item.title}/>)}
+                {results.map(item => <ListItem item={item} key={item.title}/>)}
             </div>
         );
     }
