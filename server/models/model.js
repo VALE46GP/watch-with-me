@@ -13,12 +13,11 @@ const mediaSchema = new mongoose.Schema({
 });
 const Media = mongoose.model('Media', mediaSchema);
 
-// const getAll = (cb) => {
-//     Media.find()
-//     .sort('-updated')
-//     .limit(25)
-//     .exec(cb);
-// };
+const getAll = (cb) => {
+    Media.find()
+    .limit(25)
+    .exec(cb);
+};
 
 const save = (err, data) => {
     const newEntry = new Media(data);
@@ -33,4 +32,4 @@ const save = (err, data) => {
 };
 
 module.exports.save = save;
-// module.exports.getAll = getAll;
+module.exports.getAll = getAll;
