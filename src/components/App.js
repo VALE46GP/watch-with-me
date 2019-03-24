@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import ListItem from './ListItem.js';
 import Search from './Search.js';
 import './App.css';
@@ -24,6 +25,19 @@ class App extends Component {
             }],
         };
         this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
+    }
+
+    componentDidMount() {
+        axios.get('/watchlist')
+            .then((response) => {
+                console.log('results from axios request: ', response);
+                this.setState({
+                    results: response.data.results,
+                });
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 
     handleSearchInputChange(event) {
