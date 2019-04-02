@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Media from '../schemas/media';
 
 mongoose.connect('mongodb://localhost:27017/watch-with-me');
 
@@ -6,12 +7,6 @@ const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('We\'re connected.'));
-
-const mediaSchema = new mongoose.Schema({
-    title: String,
-    withwhom: [String],
-});
-const Media = mongoose.model('Media', mediaSchema);
 
 const getAll = (cb) => {
     Media.find()
@@ -31,5 +26,16 @@ const save = (err, data) => {
     }
 };
 
+const deleteItem = (err, criteria) => {
+    if (err) {
+        return console.error(err);
+    } else {
+        Media.deleteOne(criteria, err => {
+           if (err) console.error(err);
+        });
+    }
+};
+
 module.exports.save = save;
 module.exports.getAll = getAll;
+module.exports.deleteItem = deleteItem;

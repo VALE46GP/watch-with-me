@@ -1,13 +1,13 @@
 import {MongoClient} from 'mongodb';
 import logger from './logger';
 
-const db = () => {
+const watchWithMe = () => {
     const url = 'mongodb://localhost:27017/watch-with-me';
-    const options = {useNewUrlParser: true};
+    const options = { useNewUrlParser: true };
 
-    logger('db', 'Initializing database');
+    logger('watchWithMe', 'Initializing database');
 
     return MongoClient.connect(url, options);
 };
 
-export default db;
+export default watchWithMe;

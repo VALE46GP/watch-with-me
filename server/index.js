@@ -2,8 +2,8 @@ import bodyParser from 'body-parser';
 import express from 'express';
 import path from 'path';
 import cors from 'cors';
-import handle from './lib/db';
-import data from './models/model';
+import handle from './lib/watch-with-me';
+import data from './models/watchlist';
 import logger from './lib/logger';
 import http from "http";
 
@@ -31,11 +31,15 @@ handle().then((db, err) => {
     });
 
     app.post('/watchlist', (req, res) => {
-        console.log('req.body>>>>>>>>>>>>>>>>>', req.body);
         data.save(null, req.body);
         logger('db', err || 'POST successful: ', req.body);
         res.sendStatus(201);
     });
+
+    // app.delete('/watchlist', (req, res) => {
+    //
+    //     res.sendFile(path.join(__dirname, '/../build', 'index.html'));
+    // });
 
     app.get('*', (req, res) => {
         console.log(`sendFile: ${path.join(__dirname, '/../build', 'index.html')}`);
