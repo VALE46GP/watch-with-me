@@ -13,16 +13,7 @@ class App extends Component {
             results: [{
                 title: 'Pootie Tang',
                 withwhom: ['Guillermo', 'Cynthia'],
-            }, {
-                title: 'Cable Guy',
-                withwhom: ['Guillermo', 'Cynthia'],
-            }, {
-                title: 'Raising Arizona',
-                withwhom: ['Guillermo'],
-            }, {
-                title: 'Wind River',
-                withwhom: [],
-            }],
+            },],
         };
         this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
     }
