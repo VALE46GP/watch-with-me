@@ -3,9 +3,10 @@ import express from 'express';
 import path from 'path';
 import cors from 'cors';
 import handle from './lib/watch-with-me';
-import data from './models/watchlist';
 import logger from './lib/logger';
 import http from "http";
+import api from './apis/api';
+import data from "./models/watchlist";
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -18,7 +19,7 @@ handle().then((db, err) => {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(cors());
-
+    // app.use('/api', api(app, db));
     app.get('/watchlist', (req, res) => {
         data.getAll((err, results) => {
             if (err) {
@@ -35,11 +36,6 @@ handle().then((db, err) => {
         logger('db', err || 'POST successful: ', req.body);
         res.sendStatus(201);
     });
-
-    // app.delete('/watchlist', (req, res) => {
-    //
-    //     res.sendFile(path.join(__dirname, '/../build', 'index.html'));
-    // });
 
     app.get('*', (req, res) => {
         console.log(`sendFile: ${path.join(__dirname, '/../build', 'index.html')}`);

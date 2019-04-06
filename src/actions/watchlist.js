@@ -1,3 +1,5 @@
+import * as constants from '../constants/watchlist';
+
 /**
  * Add new media item to watchList
  *
@@ -5,8 +7,8 @@
  *                              withWhom: [STRING]  }
  * @returns {object} action
  */
-var addMedia = (media) => ({
-    type: 'ADD_MEDIA',
+const addMedia = (media) => ({
+    type: constants.ADD_MEDIA,
     media
 });
 

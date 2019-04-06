@@ -1,5 +1,5 @@
 
-var addMediaReducer = (state = null, action) => {
+const addMedia = (state = null, action) => {
     switch (action.type) {
         case 'ADD_MEDIA':
             return action.media || state;
@@ -8,4 +8,4 @@ var addMediaReducer = (state = null, action) => {
     }
 };
 
-export default addMediaReducer;
+export default addMedia;
