@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import ListItem from '../ListItem/index';
 import SearchContainer from '../Search/container';
-import './index.scss';
+import './index.css';
 
 class App extends Component {
     constructor(props) {
