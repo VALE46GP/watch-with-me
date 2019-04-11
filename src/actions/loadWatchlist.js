@@ -1,4 +1,4 @@
-import * as constants from '../constants/loadInitialResults';
+import * as constants from '../constants/loadWatchlist';
 import axios from "axios";
 
 /**
@@ -6,12 +6,12 @@ import axios from "axios";
  *
  * @returns {object} action
  */
-const loadInitialResults = () => {
+const loadWatchlist = () => {
     return dispatch => {
         axios.get('/watchlist')
             .then((response) => {
                 console.log('results from axios request: ', response);
-                dispatch(loadInitialResultsSuccess(response.data.results));
+                dispatch(loadWatchlistSuccess(response.data.results));
             })
             .catch(err => {
                 console.log('error: ', err);
@@ -19,20 +19,20 @@ const loadInitialResults = () => {
     }
 };
 
-const loadInitialResultsSuccess = results => ({
-    type: constants.LOAD_INITIAL_RESULTS,
+const loadWatchlistSuccess = results => ({
+    type: constants.LOAD_WATCHLIST,
     results,
 });
 
-// const loadInitialResultsStarted = () => ({
-//     type: LOAD_INITIAL_RESULTS_STARTED
+// const loadWatchlistStarted = () => ({
+//     type: LOAD_WATCHLIST_STARTED
 // });
 
-// const loadInitialResultsFailure = error => ({
-//     type: LOAD_INITIAL_RESULTS_FAILURE,
+// const loadWatchlistFailure = error => ({
+//     type: LOAD_WATCHLIST_FAILURE,
 //     payload: {
 //         error
 //     }
 // });
 
-export default loadInitialResults;
+export default loadWatchlist;

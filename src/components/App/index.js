@@ -3,7 +3,7 @@ import SearchContainer from '../Search/container';
 import WatchlistContainer from '../Watchlist/container';
 import './index.css';
 import store from "../../store/store";
-import loadInitialResults from "../../actions/loadInitialResults";
+import loadWatchlist from "../../actions/loadWatchlist";
 
 class App extends Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        store.dispatch(loadInitialResults());
+        store.dispatch(loadWatchlist());
         // axios.get('/watchlist')
         //     .then((response) => {
         //         console.log('results from axios request: ', response);

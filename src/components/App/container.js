@@ -1,13 +1,13 @@
 import App from './index';
 import { connect } from 'react-redux';
-import loadInitialResults from '../../actions/loadInitialResults';
+import loadWatchlist from '../../actions/loadWatchlist';
 
 const mapStateToProps = (state) => ({
     visibilityFilter: state.visibilityFilter,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    loadInitialResults: (results) => loadInitialResults(results)(dispatch)
+    loadInitialResults: (results) => loadWatchlist(results)(dispatch)
 });
 
 const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);

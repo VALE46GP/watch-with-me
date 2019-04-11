@@ -2,7 +2,7 @@ import Watchlist from './index';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => ({
-    results: state.loadInitialResults,
+    results: state.loadWatchlist,
 });
 
 const WatchlistContainer = connect(mapStateToProps)(Watchlist);
