@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SearchContainer from '../Search/container';
-import WatchlistContainer from '../Watchlist/container';
+import ResultsContainer from '../Results/container';
 import './index.css';
 import store from "../../store/store";
 import loadWatchlist from "../../actions/loadWatchlist";
@@ -18,23 +18,13 @@ class App extends Component {
 
     componentDidMount() {
         store.dispatch(loadWatchlist());
-        // axios.get('/watchlist')
-        //     .then((response) => {
-        //         console.log('results from axios request: ', response);
-        //         this.setState({
-        //             results: response.data.results,
-        //         });
-        //     })
-        //     .catch(err => {
-        //         console.log(err);
-        //     });
     }
 
     render() {
         return (
             <div className="App">
                 <SearchContainer />
-                <WatchlistContainer />
+                <ResultsContainer />
             </div>
         );
     }

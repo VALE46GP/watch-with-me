@@ -1,1 +1,0 @@
-export const ADD_MEDIA = 'WATCHLIST/ADD_MEDIA';

@@ -1,4 +1,4 @@
-import * as constants from '../constants/addMedia';
+import * as constants from '../constants/watchlist';
 
 /**
  * Add new media item to watchList

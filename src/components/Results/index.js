@@ -1,7 +1,7 @@
 import React from 'react';
-import ListItem from "../WatchlistItem";
+import ListItem from "../ListItem";
 
-const Watchlist = ({ results }) => (
+const Results = ({ results }) => (
     !results
         ? <div>Loading Watchlist...</div>
         : <div>
@@ -10,4 +10,4 @@ const Watchlist = ({ results }) => (
 
 );
 
-export default Watchlist;
+export default Results;

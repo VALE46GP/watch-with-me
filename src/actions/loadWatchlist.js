@@ -1,4 +1,4 @@
-import * as constants from '../constants/loadWatchlist';
+import * as constants from '../constants/watchlist';
 import axios from "axios";
 
 /**

@@ -1,4 +1,4 @@
-import * as constants from '../constants/search';
+import * as constants from '../constants/results';
 
 /**
  * updates results (the currently displayed watchlist)
