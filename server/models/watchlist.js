@@ -26,7 +26,7 @@ const save = (err, data) => {
     }
 };
 
-const deleteItem = (err, criteria) => {
+const deleteMedia = (err, criteria) => {
     if (err) {
         return console.error(err);
     } else {
@@ -38,4 +38,4 @@ const deleteItem = (err, criteria) => {
 
 module.exports.save = save;
 module.exports.getAll = getAll;
-module.exports.deleteItem = deleteItem;
+module.exports.deleteMedia = deleteMedia;

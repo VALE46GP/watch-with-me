@@ -10,6 +10,7 @@ class App extends Component {
         super(props);
         this.state = {
             visibilityFilter: 'SHOW_ALL',
+            mode: 'RESULTS/WATCHLIST',
             searchInput: '',
             all: [],
             results: [],

@@ -37,6 +37,12 @@ handle().then((db, err) => {
         res.sendStatus(201);
     });
 
+    app.delete('/watchlist', (req, res) => {
+        data.deleteMedia(null, req.body);
+        logger('db', err || 'DELETE successful: ', req.body);
+        res.sendStatus(202);
+    });
+
     app.get('*', (req, res) => {
         console.log(`sendFile: ${path.join(__dirname, '/../build', 'index.html')}`);
         res.sendFile(path.join(__dirname, '/../build', 'index.html'));

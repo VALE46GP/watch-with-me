@@ -1,1 +1,10 @@
 export const UPDATE_RESULTS = 'RESULTS/UPDATE_RESULTS';
+
+export const VISIBILITY_FILTER = {
+    SHOW_ALL: 'RESULTS/SHOW_ALL',
+};
+
+export const MODE = {
+    WATCHLIST: 'RESULTS/WATCHLIST',
+    FIND: 'RESULTS/FIND',
+};
