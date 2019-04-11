@@ -6,6 +6,7 @@ const Search = (props) => {
     const { searchInput } = props;
     const handleChange = (event) => {
         const query = event.target.value;
+        console.log(query);
         store.dispatch(handleSearchInputChange(query));
     };
     return (
@@ -20,12 +21,3 @@ const Search = (props) => {
 };
 
 export default Search;
-
-/*
-    handleSearchInputChange(event) {
-        const searchInput = event.target.value;
-        this.setState({
-            searchInput,
-        });
-    }
-*/

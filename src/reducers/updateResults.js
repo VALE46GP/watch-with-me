@@ -1,11 +1,11 @@
 
-const addMedia = (state = null, action) => {
+const updateResults = (state = null, action) => {
     switch (action.type) {
-        case 'ADD_MEDIA':
+        case 'WATCHLIST/UPDATE_RESULTS':
             return action.media || state;
         default:
             return state;
     }
 };
 
-export default addMedia;
+export default updateResults;

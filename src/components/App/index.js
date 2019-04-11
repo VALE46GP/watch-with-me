@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
-import ListItem from '../ListItem/index';
 import SearchContainer from '../Search/container';
+import WatchlistContainer from '../Watchlist/container';
 import './index.css';
+import store from "../../store/store";
+import loadInitialResults from "../../actions/loadInitialResults";
 
 class App extends Component {
     constructor(props) {
@@ -11,41 +12,29 @@ class App extends Component {
             visibilityFilter: 'SHOW_ALL',
             searchInput: '',
             all: [],
-            results: [{
-                title: 'Pootie Tang',
-                withwhom: ['Guillermo', 'Cynthia'],
-            },],
+            results: [],
         };
-        // this.handleSearchInputChange = this.handleSearchInputChange.bind(this);
     }
 
     componentDidMount() {
-        axios.get('/watchlist')
-            .then((response) => {
-                console.log('results from axios request: ', response);
-                this.setState({
-                    results: response.data.results,
-                });
-            })
-            .catch(err => {
-                console.log(err);
-            });
+        store.dispatch(loadInitialResults());
+        // axios.get('/watchlist')
+        //     .then((response) => {
+        //         console.log('results from axios request: ', response);
+        //         this.setState({
+        //             results: response.data.results,
+        //         });
+        //     })
+        //     .catch(err => {
+        //         console.log(err);
+        //     });
     }
 
-    // handleSearchInputChange(event) {
-    //     const searchInput = event.target.value;
-    //     this.setState({
-    //         searchInput,
-    //     });
-    // }
-
     render() {
-        const { results } = this.state;
         return (
             <div className="App">
-                {/*<Search handleChange={this.handleSearchInputChange}/>*/}
                 <SearchContainer />
-                {results.map(item => <ListItem item={item} key={item.title}/>)}
+                <WatchlistContainer />
             </div>
         );
     }

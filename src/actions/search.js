@@ -6,7 +6,7 @@ import * as constants from '../constants/search';
  * @param {string} query
  * @returns {object} action
  */
-var handleSearchInputChange = (query) => ({
+const handleSearchInputChange = (query) => ({
     type: constants.HANDLE_SEARCH_INPUT_CHANGE,
     query
 });

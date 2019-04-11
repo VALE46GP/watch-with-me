@@ -1,8 +1,6 @@
-import React from 'react';
 import Search from './index';
 import { connect } from 'react-redux';
 import handleVideoSearch from '../../actions/search';
-import store from '../../store/store';
 
 
 const mapDispatchToProps = (dispatch) => ({
