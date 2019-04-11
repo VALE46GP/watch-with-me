@@ -7,20 +7,32 @@ import axios from "axios";
  * @returns {object} action
  */
 const loadInitialResults = () => {
-    let results = [];
-    axios.get('/watchlist')
-        .then((response) => {
-            console.log('results from axios request: ', response);
-            results = response.data.results;
-        })
-        .catch(err => {
-            console.log(err);
-        });
-
-    return ({
-        type: constants.LOAD_INITIAL_RESULTS,
-        results,
-    });
+    return dispatch => {
+        axios.get('/watchlist')
+            .then((response) => {
+                console.log('results from axios request: ', response);
+                dispatch(loadInitialResultsSuccess(response.data.results));
+            })
+            .catch(err => {
+                console.log('error: ', err);
+            });
+    }
 };
+
+const loadInitialResultsSuccess = results => ({
+    type: constants.LOAD_INITIAL_RESULTS,
+    results,
+});
+
+// const loadInitialResultsStarted = () => ({
+//     type: LOAD_INITIAL_RESULTS_STARTED
+// });
+
+// const loadInitialResultsFailure = error => ({
+//     type: LOAD_INITIAL_RESULTS_FAILURE,
+//     payload: {
+//         error
+//     }
+// });
 
 export default loadInitialResults;
