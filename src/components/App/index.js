@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchContainer from '../Search/container';
+import FilterResultsContainer from '../FilterResults/container';
 import ResultsContainer from '../Results/container';
 import './index.css';
 import store from "../../store/store";
@@ -24,7 +24,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <SearchContainer />
+                <FilterResultsContainer />
                 <ResultsContainer />
             </div>
         );

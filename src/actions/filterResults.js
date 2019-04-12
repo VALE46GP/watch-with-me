@@ -1,7 +1,7 @@
-import * as constants from '../constants/search';
+import * as constants from '../constants/filterResults';
 
 /**
- * Handles Search input change
+ * Handles FilterResults input change
  *
  * @param {string} query
  * @returns {object} action
