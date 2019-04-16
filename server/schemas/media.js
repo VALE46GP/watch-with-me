@@ -8,5 +8,4 @@ const mediaSchema = mongoose.Schema({
 
 const Media = mongoose.model('Media', mediaSchema);
 
-
 export default Media;
