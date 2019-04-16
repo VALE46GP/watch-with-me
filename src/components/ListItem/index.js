@@ -5,7 +5,7 @@ function ListItem(props) {
     return (
         <div className="list-item">
             <h2>{item.title}</h2>
-            <p>{item.withwhom.join(', ')}</p>
+            <p>{item.audience.join(', ')}</p>
         </div>
     );
 }

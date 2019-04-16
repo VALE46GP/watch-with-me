@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const mediaSchema = mongoose.Schema({
     title: String,
-    withwhom: [String],
+    audience: [String],
+    data: Object,
 });
 
 const Media = mongoose.model('Media', mediaSchema);
