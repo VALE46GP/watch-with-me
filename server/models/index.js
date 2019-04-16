@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import Media from '../schemas/media';
+import User from '../schemas/user';
 
 mongoose.connect('mongodb://localhost:27017/watch-with-me');
 
@@ -14,7 +15,7 @@ const getAll = (cb) => {
     .exec(cb);
 };
 
-const save = (err, data) => {
+const addMedia = (err, data) => {
     const newEntry = new Media(data);
     if (err) {
         return console.error(err);
@@ -36,6 +37,19 @@ const deleteMedia = (err, criteria) => {
     }
 };
 
-module.exports.save = save;
+const addUser = (err, data) => {
+    const newUser = new User(data);
+    if (err) {
+        return console.error(err);
+    } else {
+        newUser.save(err => {
+            if (err) return console.error(err);
+        });
+        console.log('User successfully saved');
+    }
+};
+
+module.exports.addMedia = addMedia;
 module.exports.getAll = getAll;
 module.exports.deleteMedia = deleteMedia;
+module.exports.addUser = addUser;

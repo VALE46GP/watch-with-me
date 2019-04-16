@@ -1,4 +1,4 @@
-import data from "../models/watchlist";
+import data from "../models/index";
 import logger from "../lib/logger";
 
 const api = (app, db) => {

@@ -6,7 +6,7 @@ import handle from './lib/watch-with-me';
 import logger from './lib/logger';
 import http from "http";
 import api from './apis/api';
-import data from "./models/watchlist";
+import model from "./models/index";
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -21,7 +21,7 @@ handle().then((db, err) => {
     app.use(cors());
     // app.use('/api', api(app, db));
     app.get('/watchlist', (req, res) => {
-        data.getAll((err, results) => {
+        model.getAll((err, results) => {
             if (err) {
                 res.status(500).send(err.message);
             } else {
@@ -32,13 +32,19 @@ handle().then((db, err) => {
     });
 
     app.post('/watchlist', (req, res) => {
-        data.save(null, req.body);
+        model.addMedia(null, req.body);
+        logger('db', err || 'POST successful: ', req.body);
+        res.sendStatus(201);
+    });
+
+    app.post('/user', (req, res) => {
+        model.addUser(null, req.body);
         logger('db', err || 'POST successful: ', req.body);
         res.sendStatus(201);
     });
 
     app.delete('/watchlist', (req, res) => {
-        data.deleteMedia(null, req.body);
+        model.deleteMedia(null, req.body);
         logger('db', err || 'DELETE successful: ', req.body);
         res.sendStatus(202);
     });
