@@ -1,7 +1,7 @@
 import * as constants from '../constants/filterResults';
 
 /**
- * Handles FilterResults input change
+ * Handles Controls input change
  *
  * @param {string} query
  * @returns {object} action

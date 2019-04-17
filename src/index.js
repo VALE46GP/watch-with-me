@@ -5,15 +5,11 @@ import './index.css';
 import AppContainer from './components/App/container';
 import * as serviceWorker from './serviceWorker';
 import store from './store/store.js';
-import '@zendeskgarden/react-buttons/dist/styles.css';
-import { ThemeProvider } from '@zendeskgarden/react-theming';
 
 ReactDOM.render(
-    <ThemeProvider>
-        <Provider store={store}>
-            <AppContainer />
-        </Provider>
-    </ThemeProvider>,
+    <Provider store={store}>
+        <AppContainer />
+    </Provider>,
     document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

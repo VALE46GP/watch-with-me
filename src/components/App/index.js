@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FilterResultsContainer from '../FilterResults/container';
+import ControlsContainer from '../Controls/container';
 import ResultsContainer from '../Results/container';
 import './index.css';
 import store from "../../store/store";
@@ -10,7 +10,7 @@ class App extends Component {
         super(props);
         this.state = {
             visibilityFilter: 'SHOW_ALL',
-            mode: 'RESULTS/WATCHLIST',
+            mode: 'WATCHLIST',
             searchInput: '',
             all: [],
             results: [],
@@ -24,7 +24,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <FilterResultsContainer />
+                <ControlsContainer />
                 <ResultsContainer />
             </div>
         );
