@@ -4,6 +4,7 @@ import loadWatchlist from '../../actions/loadWatchlist';
 
 const mapStateToProps = (state) => ({
     visibilityFilter: state.visibilityFilter,
+    results: state.results,
 });
 
 const mapDispatchToProps = (dispatch) => ({
