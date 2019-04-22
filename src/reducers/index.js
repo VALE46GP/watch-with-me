@@ -7,7 +7,7 @@ import handleSearchInputChange from './filterResults';
 import searchNew from './searchNew';
 
 const rootReducer = combineReducers({
-    loadWatchlist: loadResults,
+    results: loadResults,
     addMedia,
     updateResults,
     searchNew,

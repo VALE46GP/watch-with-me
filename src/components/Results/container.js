@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as constants from '../../constants/results';
 
 const mapStateToProps = (state) => ({
-    results: state.loadWatchlist,
+    results: state.results,
     mode: constants.MODE.WATCHLIST,
 });
 
