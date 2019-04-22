@@ -1,4 +1,4 @@
-import * as constants from '../constants/watchlist';
+import * as constants from '../constants/results';
 
 const loadResults = (state = null, action) => {
     switch (action.type) {

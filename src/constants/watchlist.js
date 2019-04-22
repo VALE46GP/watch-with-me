@@ -1,3 +1,1 @@
-export const LOAD_RESULTS = 'WATCHLIST/LOAD_RESULTS';
-
 export const ADD_MEDIA = 'WATCHLIST/ADD_MEDIA';

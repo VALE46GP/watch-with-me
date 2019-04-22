@@ -1,4 +1,4 @@
-import * as constants from '../constants/watchlist';
+import * as constants from '../constants/results';
 import axios from "axios";
 import MOVIEDB_API_KEY from "../config/movieDb";
 

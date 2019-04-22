@@ -8,3 +8,5 @@ export const MODE = {
     WATCHLIST: 'RESULTS/WATCHLIST',
     FIND: 'RESULTS/FIND',
 };
+
+export const LOAD_RESULTS = 'RESULTS/LOAD_RESULTS';
