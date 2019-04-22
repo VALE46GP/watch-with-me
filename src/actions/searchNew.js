@@ -13,7 +13,7 @@ const searchNew = () => {
     return dispatch => {
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=Matrix`)
             .then((response) => {
-                console.log('results from axios request: ', response);
+                console.log('results from axios request: ', response.data.results);
                 dispatch(searchNewSuccess(response.data.results));
             })
             .catch(err => {
@@ -22,10 +22,14 @@ const searchNew = () => {
     }
 };
 
-const searchNewSuccess = results => ({
-    type: constants.LOAD_WATCHLIST,
-    results,
-});
+const searchNewSuccess = results => {
+    console.log('constants.LOAD_WATCHLIST: ', constants.LOAD_WATCHLIST);
+    return (
+        {
+            type: constants.LOAD_WATCHLIST,
+            results,
+        });
+};
 
 // const loadWatchlistStarted = () => ({
 //     type: LOAD_WATCHLIST_STARTED

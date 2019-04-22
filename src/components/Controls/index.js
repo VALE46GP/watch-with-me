@@ -6,6 +6,7 @@ import searchNew from '../../actions/searchNew';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
+import loadWatchlist from "../../actions/loadWatchlist";
 
 const Controls = (props) => {
     const { searchInput } = props;
@@ -26,7 +27,7 @@ const Controls = (props) => {
             <InputGroup.Append>
                 <Button
                     variant="outline-secondary"
-                    onClick={searchNew()}
+                    onClick={() => props.searchNew()}
                 >Search</Button>
             </InputGroup.Append>
         </InputGroup>
