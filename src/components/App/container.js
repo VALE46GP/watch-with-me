@@ -1,14 +1,18 @@
 import App from './index';
 import { connect } from 'react-redux';
-import loadResults from '../../actions/loadResults';
+import loadWatchlist from '../../actions/loadWatchlist';
+import searchNew from "../../actions/searchNew";
 
-const mapStateToProps = (state) => ({
-    visibilityFilter: state.visibilityFilter,
-    results: state.results,
-});
+const mapStateToProps = (state) => {
+    const { visibilityFilter, results } = state;
+    return ({
+        visibilityFilter,
+        results,
+    });
+};
 
 const mapDispatchToProps = (dispatch) => ({
-    loadInitialResults: (results) => loadResults(results)(dispatch)
+    results: () => dispatch(loadWatchlist()),
 });
 
 const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App);

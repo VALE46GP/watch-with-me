@@ -6,7 +6,7 @@ import searchNew from '../../actions/searchNew';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import loadResults from "../../actions/loadResults";
+import loadWatchlist from "../../actions/loadWatchlist";
 
 const Controls = (props) => {
     const { searchInput } = props;

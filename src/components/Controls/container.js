@@ -2,11 +2,10 @@ import Controls from './index';
 import { connect } from 'react-redux';
 import handleVideoSearch from '../../actions/filterResults';
 import searchNew from '../../actions/searchNew';
-import * as constants from "../../constants/results";
-import loadResults from "../../actions/loadResults";
+import loadWatchlist from "../../actions/loadWatchlist";
 
 // const mapStateToProps = (state) => ({
-//     results: state.loadResults,
+//     results: state.loadWatchlist,
 //     mode: constants.MODE.WATCHLIST,
 // });
 

@@ -6,12 +6,12 @@ import axios from "axios";
  *
  * @returns {object} action
  */
-const loadResults = () => {
+const loadWatchlist = () => {
     return dispatch => {
         axios.get('/watchlist')
             .then((response) => {
                 console.log('results from axios request: ', response);
-                dispatch(loadResultsSuccess(response.data.results));
+                dispatch(loadWatchlistSuccess(response.data.results));
             })
             .catch(err => {
                 console.log('error: ', err);
@@ -19,20 +19,20 @@ const loadResults = () => {
     }
 };
 
-const loadResultsSuccess = results => ({
+const loadWatchlistSuccess = results => ({
     type: constants.LOAD_RESULTS,
     results,
 });
 
-// const loadResultsStarted = () => ({
+// const loadWatchlistStarted = () => ({
 //     type: LOAD_WATCHLIST_STARTED
 // });
 
-// const loadResultsFailure = error => ({
+// const loadWatchlistFailure = error => ({
 //     type: LOAD_WATCHLIST_FAILURE,
 //     payload: {
 //         error
 //     }
 // });
 
-export default loadResults;
+export default loadWatchlist;

@@ -1,11 +1,13 @@
 import Results from './index';
 import { connect } from 'react-redux';
-import * as constants from '../../constants/results';
 
-const mapStateToProps = (state) => ({
-    results: state.results,
-    mode: constants.MODE.WATCHLIST,
-});
+const mapStateToProps = (state) => {
+    const { results, searchInput } = state;
+    return ({
+        results,
+        searchInput,
+    })
+};
 
 const ResultsContainer = connect(mapStateToProps)(Results);
 
