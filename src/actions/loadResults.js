@@ -6,7 +6,7 @@ import axios from "axios";
  *
  * @returns {object} action
  */
-const loadWatchlist = () => {
+const loadResults = () => {
     return dispatch => {
         axios.get('/watchlist')
             .then((response) => {
@@ -20,7 +20,7 @@ const loadWatchlist = () => {
 };
 
 const loadWatchlistSuccess = results => ({
-    type: constants.LOAD_WATCHLIST,
+    type: constants.LOAD_RESULTS,
     results,
 });
 
@@ -35,4 +35,4 @@ const loadWatchlistSuccess = results => ({
 //     }
 // });
 
-export default loadWatchlist;
+export default loadResults;

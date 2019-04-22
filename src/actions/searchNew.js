@@ -23,10 +23,10 @@ const searchNew = () => {
 };
 
 const searchNewSuccess = results => {
-    console.log('constants.LOAD_WATCHLIST: ', constants.LOAD_WATCHLIST);
+    console.log('constants.LOAD_RESULTS: ', constants.LOAD_RESULTS);
     return (
         {
-            type: constants.LOAD_WATCHLIST,
+            type: constants.LOAD_RESULTS,
             results,
         });
 };

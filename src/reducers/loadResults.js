@@ -1,13 +1,12 @@
 import * as constants from '../constants/watchlist';
 
-const loadWatchlist = (state = null, action) => {
-    console.log('HERE: ', action.results);
+const loadResults = (state = null, action) => {
     switch (action.type) {
-        case constants.LOAD_WATCHLIST:
+        case constants.LOAD_RESULTS:
             return action.results || state;
         default:
             return state;
     }
 };
 
-export default loadWatchlist;
+export default loadResults;

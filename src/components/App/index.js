@@ -3,7 +3,7 @@ import ControlsContainer from '../Controls/container';
 import ResultsContainer from '../Results/container';
 import './index.css';
 import store from "../../store/store";
-import loadWatchlist from "../../actions/loadWatchlist";
+import loadResults from "../../actions/loadResults";
 
 class App extends Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        store.dispatch(loadWatchlist());
+        store.dispatch(loadResults());
     }
 
     render() {

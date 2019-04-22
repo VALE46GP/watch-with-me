@@ -1,13 +1,13 @@
 import { combineReducers } from 'redux';
 
-import loadWatchlist from './loadWatchlist';
+import loadResults from './loadResults';
 import addMedia from './addMedia';
 import updateResults from './updateResults';
 import handleSearchInputChange from './filterResults';
 import searchNew from './searchNew';
 
 const rootReducer = combineReducers({
-    loadWatchlist,
+    loadWatchlist: loadResults,
     addMedia,
     updateResults,
     searchNew,
