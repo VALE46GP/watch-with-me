@@ -1,7 +1,6 @@
 import App from './index';
 import { connect } from 'react-redux';
 import loadWatchlist from '../../actions/loadWatchlist';
-import searchNew from "../../actions/searchNew";
 
 const mapStateToProps = (state) => {
     const { visibilityFilter, results } = state;

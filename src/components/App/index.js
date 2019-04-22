@@ -6,16 +6,9 @@ import store from "../../store/store";
 import loadWatchlist from "../../actions/loadWatchlist";
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            visibilityFilter: 'SHOW_ALL',
-            mode: 'WATCHLIST',
-            searchInput: '',
-            all: [],
-            results: [],
-        };
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     componentDidMount() {
         store.dispatch(loadWatchlist());

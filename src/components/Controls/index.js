@@ -1,7 +1,7 @@
 import React from 'react';
 import store from '../../store/store';
 import './index.css';
-import handleSearchInputChange from '../../actions/filterResults';
+import handleSearchInputChange from '../../actions/handleSearchInputChange';
 import searchNew from '../../actions/searchNew';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -12,7 +12,6 @@ const Controls = (props) => {
     const { searchInput } = props;
     const handleChange = (event) => {
         const query = event.target.value;
-        console.log(query);
         store.dispatch(handleSearchInputChange(query));
     };
     return (
@@ -27,7 +26,7 @@ const Controls = (props) => {
             <InputGroup.Append>
                 <Button
                     variant="outline-secondary"
-                    onClick={() => props.searchNew()}
+                    onClick={() => props.searchNew(searchInput)}
                 >Search</Button>
             </InputGroup.Append>
         </InputGroup>

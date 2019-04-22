@@ -9,9 +9,11 @@ import MOVIEDB_API_KEY from "../config/movieDb";
  * @param {string} query
  * @returns {object} action
  */
-const searchNew = () => {
+const searchNew = (query = 'Matrix') => {
+    // todo: format query
+    console.log('action/searchNew: query = ', query);
     return dispatch => {
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=Matrix`)
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=${query}`)
             .then((response) => {
                 console.log('results from axios request: ', response.data.results);
                 dispatch(searchNewSuccess(response.data.results));

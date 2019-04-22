@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import loadResults from './loadResults';
 import addMedia from './addMedia';
 import updateResults from './updateResults';
-import handleSearchInputChange from './filterResults';
+import handleSearchInputChange from './handleSearchInputChange';
 import searchNew from './searchNew';
 
 const rootReducer = combineReducers({
@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
     addMedia,
     updateResults,
     searchNew,
-    handleSearchInputChange,
+    searchInput: handleSearchInputChange,
 });
 
 export default rootReducer;

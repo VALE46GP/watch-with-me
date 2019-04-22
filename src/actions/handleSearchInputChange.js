@@ -1,14 +1,14 @@
-import * as constants from '../constants/filterResults';
+import * as constants from '../constants/controls';
 
 /**
  * Handles Controls input change
  *
- * @param {string} query
+ * @param {string} searchInput
  * @returns {object} action
  */
-const handleSearchInputChange = (query) => ({
+const handleSearchInputChange = (searchInput) => ({
     type: constants.HANDLE_SEARCH_INPUT_CHANGE,
-    query
+    searchInput,
 });
 
 export default handleSearchInputChange;
