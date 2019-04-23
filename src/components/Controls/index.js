@@ -12,6 +12,7 @@ const Controls = (props) => {
     const { searchInput, handleSearchInputChange, handleModeChange, mode } = props;
     const toggleMode = (value) => {
         store.dispatch(handleModeChange(value));
+        store.dispatch(handleSearchInputChange(mode, ''));
     };
     const handleChange = (event) => {
         const query = event.target.value;

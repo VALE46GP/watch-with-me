@@ -7,9 +7,11 @@ import * as constants from '../constants/controls';
  * @param {string} searchInput
  * @returns {object} action
  */
-const handleSearchInputChange = (mode, searchInput) => ({
-    type: constants.HANDLE_SEARCH_INPUT_CHANGE,
-    searchInput,
-});
+const handleSearchInputChange = (mode, searchInput) => {
+    return ({
+        type: constants.HANDLE_SEARCH_INPUT_CHANGE,
+        searchInput,
+    });
+};
 
 export default handleSearchInputChange;

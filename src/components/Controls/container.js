@@ -6,7 +6,6 @@ import searchNew from '../../actions/searchNew';
 
 const mapStateToProps = (state) => {
     const { searchInput, results, mode } = state;
-    console.log('searchInput: ', searchInput);
     return ({
         searchInput,
         results,
