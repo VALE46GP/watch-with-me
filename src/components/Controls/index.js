@@ -18,6 +18,14 @@ const Controls = (props) => {
         const query = event.target.value;
         store.dispatch(handleSearchInputChange(mode, query));
     };
+    const searchButton = mode === 'MODE/ADD_NEW'
+        ? <InputGroup.Append>
+            <Button
+                variant="outline-secondary"
+                onClick={() => props.searchNew(searchInput)}
+            >Search</Button>
+        </InputGroup.Append>
+        : null;
     return (
         <div>
             <ButtonToolbar>
@@ -43,12 +51,7 @@ const Controls = (props) => {
                     aria-describedby="basic-addon2"
                     onChange={handleChange}
                 />
-                <InputGroup.Append>
-                    <Button
-                        variant="outline-secondary"
-                        onClick={() => props.searchNew(searchInput)}
-                    >Search</Button>
-                </InputGroup.Append>
+                {searchButton}
             </InputGroup>
         </div>
     );
