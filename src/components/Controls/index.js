@@ -38,8 +38,8 @@ const Controls = (props) => {
             <InputGroup className="mb-3">
                 <FormControl
                     value={searchInput}
-                    placeholder="Search"
-                    aria-label="Search"
+                    placeholder="Search..."
+                    aria-label="Search..."
                     aria-describedby="basic-addon2"
                     onChange={handleChange}
                 />
