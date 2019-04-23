@@ -1,21 +1,23 @@
 import Controls from './index';
 import { connect } from 'react-redux';
 import handleSearchInputChange from '../../actions/handleSearchInputChange';
+import handleModeChange from '../../actions/handleModeChange';
 import searchNew from '../../actions/searchNew';
 
 const mapStateToProps = (state) => {
-    const { searchInput, results } = state;
+    const { searchInput, results, mode } = state;
     console.log('searchInput: ', searchInput);
     return ({
         searchInput,
         results,
+        mode,
     });
 };
 
-const mapDispatchToProps = (dispatch, state) => {
-    const { searchInput } = state;
+const mapDispatchToProps = (dispatch) => {
     return ({
         handleSearchInputChange: (searchInput) => dispatch(handleSearchInputChange(searchInput)),
+        handleModeChange: (mode) => dispatch(handleModeChange(mode)),
         searchNew: (searchInput) => dispatch(searchNew(searchInput)),
     });
 };

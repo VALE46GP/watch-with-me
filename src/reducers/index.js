@@ -4,6 +4,7 @@ import loadResults from './loadResults';
 import addMedia from './addMedia';
 import updateResults from './updateResults';
 import handleSearchInputChange from './handleSearchInputChange';
+import handleModeChange from './handleModeChange';
 import searchNew from './searchNew';
 
 const rootReducer = combineReducers({
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
     updateResults,
     searchNew,
     searchInput: handleSearchInputChange,
+    mode: handleModeChange,
 });
 
 export default rootReducer;
