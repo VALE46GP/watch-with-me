@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        handleSearchInputChange: (searchInput) => dispatch(handleSearchInputChange(searchInput)),
+        handleSearchInputChange: (mode, searchInput) => dispatch(handleSearchInputChange(mode, searchInput)),
         handleModeChange: (mode) => dispatch(handleModeChange(mode)),
         searchNew: (searchInput) => dispatch(searchNew(searchInput)),
     });
