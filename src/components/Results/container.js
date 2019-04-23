@@ -2,9 +2,12 @@ import Results from './index';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
-    const { results } = state;
+    const { results, mode, watchlist, tmdbResults } = state;
     return ({
-        results
+        results,
+        mode,
+        watchlist,
+        tmdbResults,
     })
 };
 

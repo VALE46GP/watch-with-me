@@ -9,17 +9,17 @@ import store from "../store/store";
  * @returns {object} action
  */
 const handleModeChange = (mode) => {
-    const { watchlist, tmdbResults } = store.getState();
-    switch (mode) {
-        case 'MODE/WATCHLIST':
-            store.dispatch(loadResults(watchlist));
-            break;
-        case 'MODE/tmdbResults':
-            store.dispatch(loadResults(tmdbResults));
-            break;
-        default:
-            break;
-    }
+    // const { watchlist, tmdbResults } = store.getState();
+    // switch (mode) {
+    //     case 'MODE/WATCHLIST':
+    //         store.dispatch(loadResults(watchlist));
+    //         break;
+    //     case 'MODE/tmdbResults':
+    //         store.dispatch(loadResults(tmdbResults));
+    //         break;
+    //     default:
+    //         break;
+    // }
 
     return {
         type: constants.HANDLE_MODE_CHANGE,

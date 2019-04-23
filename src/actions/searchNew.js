@@ -16,7 +16,6 @@ const searchNew = (query = 'Matrix') => {
     return dispatch => {
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=${query}`)
             .then((response) => {
-                console.log('results from axios request: ', response.data.results);
                 dispatch(searchNewSuccess(response.data.results));
                 // dispatch(loadResults(response.data.results));
             })
@@ -26,13 +25,10 @@ const searchNew = (query = 'Matrix') => {
     }
 };
 
-const searchNewSuccess = tmdbResults => {
-    return (
-        {
-            type: constants.SEARCH_NEW,
-            tmdbResults,
-        });
-};
+const searchNewSuccess = tmdbResults => ({
+    type: constants.SEARCH_NEW,
+    tmdbResults,
+});
 
 // const loadWatchlistStarted = () => ({
 //     type: LOAD_WATCHLIST_STARTED
