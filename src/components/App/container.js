@@ -4,9 +4,8 @@ import loadWatchlist from '../../actions/loadWatchlist';
 import handleModeChange from '../../actions/handleModeChange';
 
 const mapStateToProps = (state) => {
-    const { visibilityFilter, results, mode } = state;
+    const { results, mode } = state;
     return ({
-        visibilityFilter,
         results,
         mode,
     });

@@ -9,10 +9,28 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
 const Controls = (props) => {
-    const { searchInput, handleSearchInputChange, handleModeChange, mode } = props;
+    const {
+        searchInput,
+        handleSearchInputChange,
+        handleModeChange,
+        loadResults,
+        mode,
+        watchlist,
+        tmdbResults
+    } = props;
     const toggleMode = (value) => {
         store.dispatch(handleModeChange(value));
         store.dispatch(handleSearchInputChange(mode, ''));
+        switch (value) {
+            case 'MODE/ADD_NEW':
+                loadResults(tmdbResults);
+                break;
+            case 'MODE/WATCHLIST':
+                loadResults(watchlist);
+                break;
+            default:
+                break;
+        }
     };
     const handleChange = (event) => {
         const query = event.target.value;

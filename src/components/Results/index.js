@@ -1,17 +1,20 @@
 import React from 'react';
+import store from '../../store/store';
 import ListItem from "../ListItem";
 
 const Results = (props) => {
-    const { mode, watchlist, tmdbResults } = props;
+    const { mode, watchlist, tmdbResults, loadResults,} = props;
     let results;
     switch (mode) {
         case 'MODE/WATCHLIST':
             results = watchlist;
-            // store.dispatch(loadResults(watchlist));
+            store.dispatch(loadResults(watchlist));
+            console.log('RESULTS: ', results);
             break;
-        case 'MODE/tmdbResults':
+        case 'MODE/ADD_NEW':
             results = tmdbResults;
-            // store.dispatch(loadResults(tmdbResults));
+            store.dispatch(loadResults(tmdbResults));
+            console.log('RESULTS: ', results);
             break;
         default:
             break;
