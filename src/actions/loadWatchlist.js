@@ -1,4 +1,5 @@
 import * as constants from '../constants/results';
+import loadResults from './loadResults';
 import axios from "axios";
 
 /**
@@ -11,7 +12,8 @@ const loadWatchlist = () => {
         axios.get('/watchlist')
             .then((response) => {
                 console.log('results from axios request: ', response);
-                dispatch(loadWatchlistSuccess(response.data.results));
+                dispatch(loadWatchlistSuccess(response.data.watchlist));
+                dispatch(loadResults(response.data.results));
             })
             .catch(err => {
                 console.log('error: ', err);
@@ -20,7 +22,7 @@ const loadWatchlist = () => {
 };
 
 const loadWatchlistSuccess = results => ({
-    type: constants.LOAD_RESULTS,
+    type: constants.LOAD_WATCHLIST,
     results,
 });
 

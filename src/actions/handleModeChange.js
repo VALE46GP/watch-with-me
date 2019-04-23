@@ -1,4 +1,7 @@
 import * as constants from '../constants/controls';
+import loadWatchlist from './loadWatchlist';
+import searchNew from './searchNew';
+import store from "../store/store";
 
 /**
  * Handles Controls mode change

@@ -1,11 +1,12 @@
+import * as constants from '../constants/results';
 
-const searchNew = (state = null, action) => {
+const loadResults = (state = null, action) => {
     switch (action.type) {
-        case 'TMDB/SEARCH_NEW':
-            return action.searchInput || state;
+        case constants.SEARCH_NEW:
+            return action.tmdbResults || state;
         default:
             return state;
     }
 };
 
-export default searchNew;
+export default loadResults;

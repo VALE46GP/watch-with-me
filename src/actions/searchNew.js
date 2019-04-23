@@ -1,6 +1,7 @@
 import * as constants from '../constants/results';
 import axios from "axios";
 import MOVIEDB_API_KEY from "../config/movieDb";
+import loadResults from "./loadResults";
 
 
 /**
@@ -17,6 +18,7 @@ const searchNew = (query = 'Matrix') => {
             .then((response) => {
                 console.log('results from axios request: ', response.data.results);
                 dispatch(searchNewSuccess(response.data.results));
+                // dispatch(loadResults(response.data.results));
             })
             .catch(err => {
                 console.log('error: ', err);
@@ -24,12 +26,11 @@ const searchNew = (query = 'Matrix') => {
     }
 };
 
-const searchNewSuccess = results => {
-    console.log('constants.LOAD_RESULTS: ', constants.LOAD_RESULTS);
+const searchNewSuccess = tmdbResults => {
     return (
         {
-            type: constants.LOAD_RESULTS,
-            results,
+            type: constants.SEARCH_NEW,
+            tmdbResults,
         });
 };
 

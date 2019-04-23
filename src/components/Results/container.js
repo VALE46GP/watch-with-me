@@ -2,10 +2,9 @@ import Results from './index';
 import { connect } from 'react-redux';
 
 const mapStateToProps = (state) => {
-    const { results, searchInput } = state;
+    const { results } = state;
     return ({
-        results,
-        searchInput,
+        results
     })
 };
 
