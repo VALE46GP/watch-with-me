@@ -1,6 +1,5 @@
 import * as constants from '../constants/controls';
-import loadWatchlist from './loadWatchlist';
-import searchNew from './searchNew';
+import loadResults from './loadResults';
 import store from "../store/store";
 
 /**
@@ -9,9 +8,23 @@ import store from "../store/store";
  * @param {string} mode
  * @returns {object} action
  */
-const handleModeChange = (mode) => ({
-    type: constants.HANDLE_MODE_CHANGE,
-    mode,
-});
+const handleModeChange = (mode) => {
+    const { watchlist, tmdbResults } = store.getState();
+    switch (mode) {
+        case 'MODE/WATCHLIST':
+            store.dispatch(loadResults(watchlist));
+            break;
+        case 'MODE/tmdbResults':
+            store.dispatch(loadResults(tmdbResults));
+            break;
+        default:
+            break;
+    }
+
+    return {
+        type: constants.HANDLE_MODE_CHANGE,
+        mode,
+    };
+};
 
 export default handleModeChange;

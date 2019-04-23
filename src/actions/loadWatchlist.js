@@ -11,8 +11,7 @@ const loadWatchlist = () => {
     return dispatch => {
         axios.get('/watchlist')
             .then((response) => {
-                console.log('results from axios request: ', response);
-                dispatch(loadWatchlistSuccess(response.data.watchlist));
+                dispatch(loadWatchlistSuccess(response.data.results));
                 dispatch(loadResults(response.data.results));
             })
             .catch(err => {
@@ -23,7 +22,7 @@ const loadWatchlist = () => {
 
 const loadWatchlistSuccess = results => ({
     type: constants.LOAD_WATCHLIST,
-    results,
+    watchlist: results,
 });
 
 // const loadWatchlistStarted = () => ({

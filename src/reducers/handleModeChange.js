@@ -1,7 +1,6 @@
 import * as constants from '../constants/controls';
 
 const handleModeChange = (state = null, action) => {
-    console.log('STATE: ', state);
     switch (action.type) {
         case constants.HANDLE_MODE_CHANGE:
             return action.mode;
