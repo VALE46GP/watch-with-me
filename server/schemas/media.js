@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const mediaSchema = mongoose.Schema({
     audience: [String],
+    date_added: Date,
     data: Object,
     vote_count: Number,
     id: Number,

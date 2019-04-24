@@ -20,10 +20,13 @@ class AddMediaButton extends Component {
 
     handleClick() {
         const { data } = this.props;
-        const audience = [];
+        const moreDetails = {
+            audience: [],
+            date_added: new Date(),
+        };
         this.setState({ isLoading: true }, () => {
             axios.post('/watchlist',
-                Object.assign({}, data, {audience})
+                Object.assign({}, data, moreDetails)
             )
                 .then(() => {
 
