@@ -12,7 +12,7 @@ const loadWatchlist = () => {
         axios.get('/watchlist')
             .then((response) => {
                 dispatch(loadWatchlistSuccess(response.data.results));
-                dispatch(loadResults(response.data.results));
+                // dispatch(loadResults(response.data.results));
             })
             .catch(err => {
                 console.log('error: ', err);

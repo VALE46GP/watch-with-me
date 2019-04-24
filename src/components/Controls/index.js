@@ -11,6 +11,7 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 const Controls = (props) => {
     const {
         searchInput,
+        searchNew,
         handleSearchInputChange,
         handleModeChange,
         loadResults,
@@ -42,7 +43,7 @@ const Controls = (props) => {
         ? <InputGroup.Append>
             <Button
                 variant="outline-secondary"
-                onClick={() => props.searchNew(searchInput)}
+                onClick={() => searchNew(searchInput)}
             >Search</Button>
         </InputGroup.Append>
         : null;

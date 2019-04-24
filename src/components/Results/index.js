@@ -9,12 +9,10 @@ const Results = (props) => {
         case 'MODE/WATCHLIST':
             results = watchlist;
             store.dispatch(loadResults(watchlist));
-            console.log('RESULTS: ', results);
             break;
         case 'MODE/ADD_NEW':
             results = tmdbResults;
             store.dispatch(loadResults(tmdbResults));
-            console.log('RESULTS: ', results);
             break;
         default:
             break;

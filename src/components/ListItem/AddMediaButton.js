@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import store from '../../store/store';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import axios from "axios";
@@ -19,7 +20,8 @@ class AddMediaButton extends Component {
     }
 
     handleClick() {
-        const { data } = this.props;
+        const { data, watchlist, loadWatchlist } = this.props;
+        console.log('watchlist: ', watchlist);
         const moreDetails = {
             audience: [],
             date_added: new Date(),
@@ -29,7 +31,9 @@ class AddMediaButton extends Component {
                 Object.assign({}, data, moreDetails)
             )
                 .then(() => {
-
+                    // const newWatchlist = watchlist.slice();
+                    // newWatchlist.push(Object.assign({}, data, moreDetails));
+                    store.dispatch(() => loadWatchlist());
                 })
                 .then(() => {
                     this.setState({ isLoading: false });
