@@ -1,43 +1,20 @@
 import * as constants from '../constants/results';
-import axios from "axios";
 
 /**
  * Add new media item to watchList
  *
- * @param {object} media - {    title: STRING,
- *                              withWhom: [STRING]  }
+ * @param {object} media - the new item to be added
+ * @param {array} watchlist - before adding media
  * @returns {object} action
  */
-const addMedia = (media) => {
-
-    return dispatch => {
-        axios.post('/watchlist', {
-            data: media
-        })
-            // .then((response) => {
-            //     dispatch(addMediaSuccess(response.data.results));
-            //     dispatch(loadResults(response.data.results));
-            // })
-            .catch(err => {
-                console.log('error: ', err);
-            });
+const addMedia = (media, watchlist = []) => {
+    const newMedia = Object.assign({}, media, {audience:[]});
+    const newWatchlist = watchlist.slice();
+    newWatchlist.push(newMedia);
+    return {
+        type: constants.LOAD_WATCHLIST,
+        watchlist: newWatchlist,
     }
 };
-
-const addMediaSuccess = watchlist => ({
-    type: constants.LOAD_WATCHLIST,
-    watchlist: watchlist,
-});
-
-// const addMediaStarted = () => ({
-//     type: LOAD_WATCHLIST_STARTED
-// });
-
-// const addMediaFailure = error => ({
-//     type: LOAD_WATCHLIST_FAILURE,
-//     payload: {
-//         error
-//     }
-// });
 
 export default addMedia;

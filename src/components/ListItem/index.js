@@ -11,7 +11,6 @@ function ListItem(props) {
                 <div className="btn-div">
                     <AddMediaButton data={item}/>
                 </div>
-                {/*<h2>{item.title}</h2>*/}
                 <img className="media-img" src={`https://image.tmdb.org/t/p/original${item.poster_path}`}/>
             </div>
         </div>

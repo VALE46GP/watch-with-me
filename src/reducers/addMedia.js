@@ -2,7 +2,7 @@
 const addMedia = (state = null, action) => {
     switch (action.type) {
         case 'WATCHLIST/ADD_MEDIA':
-            return action.media || state;
+            return action.watchlist || state;
         default:
             return state;
     }

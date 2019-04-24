@@ -26,6 +26,9 @@ class AddMediaButton extends Component {
                 Object.assign({}, data, {audience})
             )
                 .then(() => {
+
+                })
+                .then(() => {
                     this.setState({ isLoading: false });
                 });
         });
