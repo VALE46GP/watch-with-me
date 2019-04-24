@@ -17,14 +17,18 @@ const getAll = (cb) => {
 
 const addMedia = (err, data) => {
     const newEntry = new Media(data);
-    if (err) {
-        return console.error(err);
-    } else {
-        newEntry.save(err => {
-            if (err) return console.error(err);
-        });
-        console.log('Data successfully saved');
-    }
+    Media.findOne({id: data.id}, (err, dup) => {
+        if (err) {
+            return console.error(err);
+        } else if (dup) {
+            return console.log(data.title, ' is already in watchlist');
+        } else {
+            newEntry.save(err => {
+                if (err) return console.error(err);
+            });
+            console.log(data.title, ' saved to db');
+        }
+    });
 };
 
 const deleteMedia = (err, criteria) => {

@@ -5,7 +5,7 @@ const mediaSchema = mongoose.Schema({
     date_added: Date,
     data: Object,
     vote_count: Number,
-    id: Number,
+    id: { type : String , unique : true, required : true, dropDups: true },
     video: Boolean,
     vote_average: Number,
     title: String,

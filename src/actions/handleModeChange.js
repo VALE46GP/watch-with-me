@@ -14,7 +14,7 @@ const handleModeChange = (mode) => {
     //     case 'MODE/WATCHLIST':
     //         store.dispatch(loadResults(watchlist));
     //         break;
-    //     case 'MODE/tmdbResults':
+    //     case 'MODE/ADD_NEW':
     //         store.dispatch(loadResults(tmdbResults));
     //         break;
     //     default:
