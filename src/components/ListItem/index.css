@@ -6,10 +6,17 @@
     position: absolute;
 }
 
-.add-media-btn {
+.remove-media-btn {
     margin-right: -20px;
     margin-top: 5px;
+    /*background-color: #dc3545;*/
+    /*border-color: #dc3545;*/
 }
+
+.add-media-btn {
+     margin-right: -20px;
+     margin-top: 5px;
+ }
 
 .list-item {
     border-style: groove;

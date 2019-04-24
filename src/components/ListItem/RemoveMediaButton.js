@@ -4,11 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import axios from "axios";
 
-// function simulateNetworkRequest() {
-//     return new Promise(resolve => setTimeout(resolve, 1000));
-// }
-
-class AddMediaButton extends Component {
+class RemoveMediaButton extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -21,15 +17,12 @@ class AddMediaButton extends Component {
 
     handleClick() {
         const { data, watchlist, loadWatchlist } = this.props;
-        const moreDetails = {
-            audience: [],
-            date_added: new Date(),
-        };
         this.setState({ isLoading: true }, () => {
-            axios.post('/watchlist',
-                Object.assign({}, data, moreDetails)
-            )
+            axios.delete('/watchlist', {
+                params: {_id: data._id}
+        })
                 .then(() => {
+                    console.log(data.title, ' removed from watchlist');
                     // const newWatchlist = watchlist.slice();
                     // newWatchlist.push(Object.assign({}, data, moreDetails));
                     store.dispatch(() => loadWatchlist());
@@ -45,7 +38,7 @@ class AddMediaButton extends Component {
 
         return (
             <Button
-                variant="primary"
+                variant="danger"
                 disabled={isLoading}
                 onClick={!isLoading ? this.handleClick : null}
             >
@@ -53,10 +46,10 @@ class AddMediaButton extends Component {
                     ? <Spinner animation="border" role="status">
                         <span className="sr-only">Loading...</span>
                     </Spinner>
-                    : '+'}
+                    : '-'}
             </Button>
         );
     }
 }
 
-export default AddMediaButton;
+export default RemoveMediaButton;

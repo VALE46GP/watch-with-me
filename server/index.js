@@ -44,8 +44,9 @@ handle().then((db, err) => {
     });
 
     app.delete('/watchlist', (req, res) => {
-        model.deleteMedia(null, req.body);
-        logger('db', err || 'DELETE successful: ', req.body);
+        console.log('DELETE: req = ', req);
+        model.deleteMedia(null, req.query);
+        logger('db', err || 'DELETE successful: ', req.query);
         res.sendStatus(202);
     });
 

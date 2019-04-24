@@ -4,9 +4,10 @@ import addMedia from "../../actions/addMedia";
 import loadWatchlist from "../../actions/loadWatchlist";
 
 const mapStateToProps = (state) => {
-    const { watchlist } = state;
+    const { watchlist, mode } = state;
     return ({
         watchlist,
+        mode,
     })
 };
 
