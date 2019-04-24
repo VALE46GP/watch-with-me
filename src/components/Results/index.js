@@ -1,6 +1,6 @@
 import React from 'react';
 import store from '../../store/store';
-import ListItem from "../ListItem";
+import ListItemContainer from "../ListItem/container";
 
 const Results = (props) => {
     const { mode, watchlist, tmdbResults, loadResults,} = props;
@@ -23,7 +23,7 @@ const Results = (props) => {
         !results
             ? <div>Loading Watchlist...</div>
             : <div>
-                {results.map(item => <ListItem item={item} key={item.title}/>)}
+                {results.map(item => <ListItemContainer item={item} key={item.title}/>)}
             </div>
 
     );

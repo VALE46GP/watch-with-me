@@ -1,0 +1,7 @@
+.btn-div {
+    z-index: 2;
+    cursor: pointer;
+    text-align:right;
+    width: 100%;
+    position: fixed;
+}
