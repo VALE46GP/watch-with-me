@@ -23,7 +23,9 @@ const Results = (props) => {
         !results
             ? <div>Loading Watchlist...</div>
             : <div>
-                {results.map(item => <ListItemContainer item={item} key={item.title}/>)}
+                {results
+                    .sort((a, b) => new Date(b.date_added) - new Date(a.date_added))
+                    .map(item => <ListItemContainer item={item} key={item.title}/>)}
             </div>
 
     );
