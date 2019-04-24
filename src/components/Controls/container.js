@@ -2,6 +2,7 @@ import Controls from './index';
 import { connect } from 'react-redux';
 import handleSearchInputChange from '../../actions/handleSearchInputChange';
 import handleModeChange from '../../actions/handleModeChange';
+import loadWatchlist from '../../actions/loadWatchlist';
 import loadResults from '../../actions/loadResults';
 import searchNew from '../../actions/searchNew';
 
@@ -22,6 +23,7 @@ const mapDispatchToProps = (dispatch) => {
         handleModeChange: (mode) => dispatch(handleModeChange(mode)),
         searchNew: (searchInput) => dispatch(searchNew(searchInput)),
         loadResults: (results) => dispatch(loadResults(results)),
+        loadWatchlist: () => dispatch(loadWatchlist()),
     });
 };
 

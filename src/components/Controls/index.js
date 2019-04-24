@@ -14,6 +14,7 @@ const Controls = (props) => {
         handleSearchInputChange,
         handleModeChange,
         loadResults,
+        loadWatchlist,
         mode,
         watchlist,
         tmdbResults
@@ -27,6 +28,7 @@ const Controls = (props) => {
                 break;
             case 'MODE/WATCHLIST':
                 loadResults(watchlist);
+                store.dispatch(() => loadWatchlist('MODE/WATCHLIST'));
                 break;
             default:
                 break;
