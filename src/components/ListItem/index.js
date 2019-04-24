@@ -11,13 +11,12 @@ function ListItem(props) {
         loadWatchlist,
         mode,
     } = props;
-    console.log('ITEM: ', item);
-    console.log('watchlist.find(e => e.id === item.id) :: ', watchlist.find(e => e.id === item.id));
-    let addRemoveButton = mode === ('MODE/WATCHLIST' || watchlist.find(e => e.id === item.id))
+    let addRemoveButton = mode === 'MODE/WATCHLIST' || item.hasOwnProperty('inWatchlist')
         ? <RemoveMediaButton
             data={item}
             watchlist={watchlist}
             loadWatchlist={loadWatchlist}
+            onClick={delete item.inWatchlist}
         />
         : <AddMediaButton
             data={item}

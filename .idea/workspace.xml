@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1f8acd3-18e9-43d2-b92d-05785768bd49" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/ListItem/RemoveMediaButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListItem/AddMediaButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListItem/AddMediaButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListItem/container.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListItem/container.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListItem/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListItem/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ListItem/RemoveMediaButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListItem/RemoveMediaButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ListItem/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListItem/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Results/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Results/index.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,7 +65,7 @@
           <entry key="dummy" value="7" />
           <entry key="gitignore" value="66" />
           <entry key="html" value="15" />
-          <entry key="js" value="16697" />
+          <entry key="js" value="17095" />
           <entry key="json" value="116" />
         </counts>
       </usages-collector>
@@ -77,7 +74,7 @@
           <entry key="CSS" value="173" />
           <entry key="HTML" value="15" />
           <entry key="JSON" value="116" />
-          <entry key="JavaScript" value="16697" />
+          <entry key="JavaScript" value="17095" />
           <entry key="PLAIN_TEXT" value="73" />
         </counts>
       </usages-collector>
@@ -88,8 +85,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ListItem/RemoveMediaButton.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+            <state relative-caret-position="360">
+              <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/ListItem/AddMediaButton.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -100,8 +109,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/ListItem/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+            <state relative-caret-position="232">
+              <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -112,8 +121,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ListItem/container.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            <state relative-caret-position="105">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -122,36 +131,24 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/index.js">
+        <entry file="file://$PROJECT_DIR$/src/components/Results/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="47" column="41" selection-start-line="47" selection-start-column="41" selection-end-line="47" selection-end-column="41" />
+            <state relative-caret-position="435">
+              <caret line="29" column="77" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
               <folding>
-                <element signature="e#0#37#0" expanded="true" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/models/index.js">
+        <entry file="file://$PROJECT_DIR$/src/actions/loadWatchlist.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="39" column="11" selection-start-line="39" selection-start-column="11" selection-end-line="39" selection-end-column="11" />
+            <state relative-caret-position="300">
+              <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ListItem/AddMediaButton.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="33" column="79" selection-start-line="33" selection-start-column="79" selection-end-line="33" selection-end-column="79" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#50#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -214,14 +211,14 @@
         <option value="$PROJECT_DIR$/src/components/Controls/container.js" />
         <option value="$PROJECT_DIR$/src/components/Controls/index.js" />
         <option value="$PROJECT_DIR$/src/reducers/loadResults.js" />
-        <option value="$PROJECT_DIR$/src/components/Results/index.js" />
         <option value="$PROJECT_DIR$/src/actions/loadWatchlist.js" />
         <option value="$PROJECT_DIR$/server/models/index.js" />
         <option value="$PROJECT_DIR$/src/components/ListItem/AddMediaButton.js" />
-        <option value="$PROJECT_DIR$/src/components/ListItem/RemoveMediaButton.js" />
         <option value="$PROJECT_DIR$/src/components/ListItem/index.css" />
         <option value="$PROJECT_DIR$/server/index.js" />
         <option value="$PROJECT_DIR$/src/components/ListItem/container.js" />
+        <option value="$PROJECT_DIR$/src/components/Results/index.js" />
+        <option value="$PROJECT_DIR$/src/components/ListItem/RemoveMediaButton.js" />
         <option value="$PROJECT_DIR$/src/components/ListItem/index.js" />
       </list>
     </option>
@@ -265,12 +262,13 @@
             <path>
               <item name="watch-with-me" type="b2602c69:ProjectViewProjectNode" />
               <item name="watch-with-me" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="watch-with-me" type="b2602c69:ProjectViewProjectNode" />
               <item name="watch-with-me" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="watch-with-me" type="b2602c69:ProjectViewProjectNode" />
@@ -284,6 +282,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
               <item name="ListItem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="watch-with-me" type="b2602c69:ProjectViewProjectNode" />
+              <item name="watch-with-me" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="Results" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -420,7 +425,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168900000" />
+    <option name="totallyTimeSpent" value="169942000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -435,13 +440,13 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48497853" visible="true" weight="0.19951534" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48497853" visible="true" weight="0.19951534" />
       <window_info id="Structure" order="1" sideWeight="0.50509167" side_tool="true" weight="0.22051696" />
       <window_info id="npm" order="2" sideWeight="0.51502144" side_tool="true" weight="0.19951534" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.23835616" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23835616" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -505,20 +510,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/reducers/updateResults.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/actions/updateResults.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/reducers/updateResults.js" />
+    <entry file="file://$PROJECT_DIR$/src/actions/updateResults.js" />
     <entry file="file://$PROJECT_DIR$/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -529,13 +522,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/searchNew.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants/searchNew.js" />
     <entry file="file://$PROJECT_DIR$/src/reducers/searchNew.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -584,20 +571,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Results/index_new.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants/watchlist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Results/index_new.js" />
+    <entry file="file://$PROJECT_DIR$/src/constants/watchlist.js" />
     <entry file="file://$PROJECT_DIR$/src/constants/results.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -739,8 +714,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/actions/loadWatchlist.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="51" selection-start-line="14" selection-start-column="51" selection-end-line="14" selection-end-column="64" />
+        <state relative-caret-position="300">
+          <caret line="20" column="2" selection-start-line="20" selection-start-column="2" selection-end-line="20" selection-end-column="2" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
           </folding>
@@ -777,8 +752,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Results/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
+        <state relative-caret-position="435">
+          <caret line="29" column="77" selection-start-line="29" selection-start-column="77" selection-end-line="29" selection-end-column="77" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -787,18 +762,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ListItem/AddMediaButton.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="33" column="79" selection-start-line="33" selection-start-column="79" selection-end-line="33" selection-end-column="79" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ListItem/RemoveMediaButton.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+        <state relative-caret-position="253">
+          <caret line="22" column="59" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
@@ -834,18 +799,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ListItem/container.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        <state relative-caret-position="105">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ListItem/RemoveMediaButton.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ListItem/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="25" lean-forward="true" selection-start-line="21" selection-start-column="25" selection-end-line="21" selection-end-column="25" />
+        <state relative-caret-position="232">
+          <caret line="18" column="45" lean-forward="true" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

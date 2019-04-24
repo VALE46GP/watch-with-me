@@ -23,7 +23,13 @@ const Results = (props) => {
             : <div>
                 {results
                     .sort((a, b) => new Date(b.date_added) - new Date(a.date_added))
-                    .map(item => <ListItemContainer item={item} key={item.id}/>)}
+                    .map(item => {
+                        if (mode === 'MODE/ADD_NEW' && watchlist.some(e => e.title + e.id === item.title + item.id)) {
+                            item.inWatchlist = true;
+                        }
+                        return <ListItemContainer item={item} key={item.id}/>
+                    })
+                }
             </div>
 
     );
