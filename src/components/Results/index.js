@@ -1,6 +1,7 @@
 import React from 'react';
 import store from '../../store/store';
 import ListItemContainer from "../ListItem/container";
+import './index.css';
 
 const Results = (props) => {
     const { mode, watchlist, tmdbResults, loadResults,} = props;
@@ -19,8 +20,8 @@ const Results = (props) => {
     }
     return (
         !results
-            ? <div>Loading Watchlist...</div>
-            : <div>
+            ? <div>...</div>
+            : <div className="results-container">
                 {results
                     .map(item => {
                         if (mode === 'MODE/ADD_NEW' && watchlist.some(e => e.title + e.id === item.title + item.id)) {

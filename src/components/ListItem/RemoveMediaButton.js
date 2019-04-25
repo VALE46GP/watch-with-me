@@ -16,7 +16,7 @@ class RemoveMediaButton extends Component {
     }
 
     handleClick() {
-        const { data, watchlist, loadWatchlist } = this.props;
+        const { data, loadWatchlist } = this.props;
         this.setState({ isLoading: true }, () => {
             axios.delete('/watchlist', {
                 params: {
@@ -25,9 +25,6 @@ class RemoveMediaButton extends Component {
                 }
         })
                 .then(() => {
-                    console.log(data.title, ' removed from watchlist');
-                    // const newWatchlist = watchlist.slice();
-                    // newWatchlist.push(Object.assign({}, data, moreDetails));
                     store.dispatch(() => loadWatchlist());
                 })
                 .then(() => {

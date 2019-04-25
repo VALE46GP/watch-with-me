@@ -1,5 +1,4 @@
 import * as constants from '../constants/results';
-import loadResults from './loadResults';
 import axios from "axios";
 
 /**
@@ -14,7 +13,6 @@ const loadWatchlist = () => {
                 const watchlist = response.data.results
                     .sort((a, b) => new Date(b.date_added) - new Date(a.date_added));
                 dispatch(loadWatchlistSuccess(watchlist));
-                // dispatch(loadResults(response.data.results));
             })
             .catch(err => {
                 console.log('error: ', err);

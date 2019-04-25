@@ -1,7 +1,6 @@
 import * as constants from '../constants/results';
 import axios from "axios";
 import MOVIEDB_API_KEY from "../config/movieDb";
-import loadResults from "./loadResults";
 
 
 /**
@@ -17,7 +16,6 @@ const searchNew = (query = 'Matrix') => {
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=${query}`)
             .then((response) => {
                 dispatch(searchNewSuccess(response.data.results));
-                // dispatch(loadResults(response.data.results));
             })
             .catch(err => {
                 console.log('error: ', err);

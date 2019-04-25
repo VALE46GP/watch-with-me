@@ -20,7 +20,7 @@ class AddMediaButton extends Component {
     }
 
     handleClick() {
-        const { data, watchlist, loadWatchlist } = this.props;
+        const { data, loadWatchlist } = this.props;
         const moreDetails = {
             audience: [],
             date_added: new Date(),
@@ -30,8 +30,6 @@ class AddMediaButton extends Component {
                 Object.assign({}, data, moreDetails)
             )
                 .then(() => {
-                    // const newWatchlist = watchlist.slice();
-                    // newWatchlist.push(Object.assign({}, data, moreDetails));
                     store.dispatch(() => loadWatchlist());
                 })
                 .then(() => {

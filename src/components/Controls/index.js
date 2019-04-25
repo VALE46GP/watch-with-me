@@ -66,7 +66,7 @@ const Controls = (props) => {
             </ButtonToolbar>
             <InputGroup className="mb-3">
                 <FormControl
-                    value={searchInput}
+                    value={searchInput || ''}
                     placeholder="Search..."
                     aria-label="Search..."
                     aria-describedby="basic-addon2"
