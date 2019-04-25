@@ -2,27 +2,26 @@
     z-index: 2;
     cursor: pointer;
     text-align:right;
-    width: 100%;
+    width: 95%;
     position: absolute;
 }
 
 .remove-media-btn {
     margin-right: -20px;
-    margin-top: 5px;
-    /*background-color: #dc3545;*/
-    /*border-color: #dc3545;*/
+    opacity: 80%;
 }
 
 .add-media-btn {
-     margin-right: -20px;
-     margin-top: 5px;
+    margin-right: -20px;
+    opacity: 80%;
  }
 
 .list-item {
-    border-style: groove;
-    border-color: aqua;
+    width:95%;
+    /*border-style: groove;*/
+    /*border-color: aqua;*/
 }
 
 .media-img {
-    width: 100%;
+    width: 95%;
 }

@@ -25,8 +25,8 @@ function ListItem(props) {
         />;
 
     return (
-        <div className="add-media-btn">
-            <div className="list-item" key={key}>
+        <div className="list-item" key={key}>
+            <div className="add-media-btn">
                 <div className="btn-div">
                     {addRemoveButton}
                 </div>
