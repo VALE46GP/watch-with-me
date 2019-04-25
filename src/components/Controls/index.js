@@ -18,7 +18,8 @@ const Controls = (props) => {
         loadWatchlist,
         mode,
         watchlist,
-        tmdbResults
+        tmdbResults,
+        searchData,
     } = props;
     const toggleMode = (value) => {
         store.dispatch(handleModeChange(value));
@@ -47,6 +48,9 @@ const Controls = (props) => {
             >Search</Button>
         </InputGroup.Append>
         : null;
+    const searchDataBlock = searchData
+        ? <p>{searchData.total_results + ' results found...'}</p>
+        : null;
     return (
         <div>
             <ButtonToolbar>
@@ -74,6 +78,7 @@ const Controls = (props) => {
                 />
                 {searchButton}
             </InputGroup>
+            {searchDataBlock}
         </div>
     );
 };

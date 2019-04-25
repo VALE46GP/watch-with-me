@@ -10,18 +10,22 @@ import MOVIEDB_API_KEY from "../config/movieDb";
  * @returns {object} action
  */
 const searchNew = (query = 'Matrix') => {
-    // todo: format query
-    console.log('action/searchNew: query = ', query);
     return dispatch => {
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=${query}`)
             .then((response) => {
                 dispatch(searchNewSuccess(response.data.results));
+                dispatch(loadSearchData(response.data));
             })
             .catch(err => {
                 console.log('error: ', err);
             });
     }
 };
+
+const loadSearchData = searchData => ({
+    type: constants.LOAD_SEARCH_DATA,
+    searchData,
+});
 
 const searchNewSuccess = tmdbResults => ({
     type: constants.SEARCH_NEW,
