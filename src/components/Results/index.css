@@ -1,6 +1,7 @@
 .results-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(160px, 185px));
+    grid-auto-flow: dense;
     grid-gap: 0;
-    grid-auto-rows: minmax(100px, auto);
+    grid-auto-rows: minmax(200px, auto);
 }
