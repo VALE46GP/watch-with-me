@@ -48,7 +48,7 @@ const Controls = (props) => {
             >Search</Button>
         </InputGroup.Append>
         : null;
-    const searchDataBlock = searchData
+    const searchDataBlock = (searchData && mode === 'MODE/ADD_NEW')
         ? <p>{searchData.total_results + ' results found...'}</p>
         : null;
     return (

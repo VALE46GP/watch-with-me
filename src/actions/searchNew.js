@@ -7,11 +7,12 @@ import MOVIEDB_API_KEY from "../config/movieDb";
  * Searches TMDb for query
  *
  * @param {string} query
+ * @param {number} page
  * @returns {object} action
  */
-const searchNew = (query = 'Matrix') => {
+const searchNew = (query, page = 1) => {
     return dispatch => {
-        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=${query}`)
+        axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=${query}&page=${page}`)
             .then((response) => {
                 dispatch(searchNewSuccess(response.data.results));
                 dispatch(loadSearchData(response.data));
