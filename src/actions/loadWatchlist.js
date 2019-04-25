@@ -11,7 +11,9 @@ const loadWatchlist = () => {
     return dispatch => {
         axios.get('/watchlist')
             .then((response) => {
-                dispatch(loadWatchlistSuccess(response.data.results));
+                const watchlist = response.data.results
+                    .sort((a, b) => new Date(b.date_added) - new Date(a.date_added));
+                dispatch(loadWatchlistSuccess(watchlist));
                 // dispatch(loadResults(response.data.results));
             })
             .catch(err => {

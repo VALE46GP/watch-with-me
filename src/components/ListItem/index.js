@@ -26,16 +26,14 @@ function ListItem(props) {
 
     return (
         <div className="list-item" key={key}>
-            <div className="add-media-btn">
-                <div className="btn-div">
-                    {addRemoveButton}
-                </div>
-                <img
-                    className="media-img"
-                    src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-                    alt={item.title}
-                />
+            <div className="btn-div">
+                {addRemoveButton}
             </div>
+            <img
+                className="media-img"
+                src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
+                alt={item.title}
+            />
         </div>
     );
 }

@@ -1,27 +1,15 @@
 .btn-div {
     z-index: 2;
     cursor: pointer;
-    text-align:right;
-    width: 95%;
     position: absolute;
 }
 
-.remove-media-btn {
-    margin-right: -20px;
-    opacity: 80%;
-}
-
-.add-media-btn {
-    margin-right: -20px;
-    opacity: 80%;
- }
-
 .list-item {
-    width:95%;
-    /*border-style: groove;*/
-    /*border-color: aqua;*/
+    width:50%;
+    position: relative;
 }
 
 .media-img {
-    width: 95%;
+    width: 100%;
+    position: relative;
 }

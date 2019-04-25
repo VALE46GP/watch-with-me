@@ -22,7 +22,6 @@ const Results = (props) => {
             ? <div>Loading Watchlist...</div>
             : <div>
                 {results
-                    .sort((a, b) => new Date(b.date_added) - new Date(a.date_added))
                     .map(item => {
                         if (mode === 'MODE/ADD_NEW' && watchlist.some(e => e.title + e.id === item.title + item.id)) {
                             item.inWatchlist = true;
