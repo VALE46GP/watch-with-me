@@ -19,6 +19,7 @@
     "react-dom": "^16.8.4",
     "react-redux": "^6.0.1",
     "react-scripts": "2.1.8",
+    "react-waypoint": "^9.0.2",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "styled-components": "^4.2.0"

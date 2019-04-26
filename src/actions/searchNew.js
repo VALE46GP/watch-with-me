@@ -14,8 +14,9 @@ const searchNew = (query, page = 1) => {
     return dispatch => {
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=${query}&page=${page}`)
             .then((response) => {
-                dispatch(searchNewSuccess(response.data.results));
+                console.log(`REQUEST = https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=${query}&page=${page}`);
                 dispatch(loadSearchData(response.data));
+                dispatch(searchNewSuccess(response.data.results));
             })
             .catch(err => {
                 console.log('error: ', err);
