@@ -1,5 +1,4 @@
 import React from 'react';
-import store from '../../store/store';
 import ListItemContainer from "../ListItem/container";
 import { Waypoint } from 'react-waypoint';
 import './index.css';
@@ -19,11 +18,11 @@ const Results = (props) => {
     switch (mode) {
         case 'MODE/WATCHLIST':
             results = watchlist;
-            store.dispatch(loadResults(watchlist));
+            loadResults(watchlist);
             break;
         case 'MODE/ADD_NEW':
             results = tmdbResults;
-            store.dispatch(loadResults(tmdbResults));
+            loadResults(tmdbResults);
             break;
         default:
             break;
