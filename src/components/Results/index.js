@@ -47,7 +47,9 @@ const Results = (props) => {
             console.log('query = ', query);
             console.log('page = ', page);
             console.log('tmdbResults = ', tmdbResults);
-            searchNew(searchInput, page + 1, tmdbResults);
+            return (
+                <Button onClick={() => searchNew(searchInput, page + 1, tmdbResults)}>Load More</Button>
+            );
         }
     };
     return (
@@ -62,7 +64,7 @@ const Results = (props) => {
                         return <ListItemContainer item={item} key={item.id}/>
                     })
                 }
-                <Button onClick={() => loadMore()}>Load More</Button>
+                {loadMore()}
                 {/*{infiniteScroll()}*/}
             </div>
 
