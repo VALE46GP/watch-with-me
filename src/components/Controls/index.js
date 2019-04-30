@@ -1,5 +1,4 @@
 import React from 'react';
-import store from '../../store/store';
 import './index.css';
 import Button from 'react-bootstrap/Button';
 import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
@@ -22,15 +21,15 @@ const Controls = (props) => {
         searchData,
     } = props;
     const toggleMode = (value) => {
-        store.dispatch(handleModeChange(value));
-        store.dispatch(handleSearchInputChange(mode, ''));
+        handleModeChange(value);
+        handleSearchInputChange(mode, '');
         switch (value) {
             case 'MODE/ADD_NEW':
                 loadResults(tmdbResults);
                 break;
             case 'MODE/WATCHLIST':
                 loadResults(watchlist);
-                store.dispatch(() => loadWatchlist('MODE/WATCHLIST'));
+                loadWatchlist('MODE/WATCHLIST');
                 break;
             default:
                 break;
@@ -38,7 +37,7 @@ const Controls = (props) => {
     };
     const handleChange = (event) => {
         const query = event.target.value;
-        store.dispatch(handleSearchInputChange(mode, query));
+        handleSearchInputChange(mode, query);
     };
     const searchButton = mode === 'MODE/ADD_NEW'
         ? <InputGroup.Append>
