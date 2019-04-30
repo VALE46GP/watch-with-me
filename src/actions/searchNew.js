@@ -8,15 +8,24 @@ import MOVIEDB_API_KEY from "../config/movieDb";
  *
  * @param {string} query
  * @param {number} page
+ * @param {array} currResults
  * @returns {object} action
  */
-const searchNew = (query, page = 1) => {
+const searchNew = (query, page = 1, currResults = []) => {
     return dispatch => {
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=${query}&page=${page}`)
             .then((response) => {
-                console.log(`REQUEST = https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=${query}&page=${page}`);
-                dispatch(loadSearchData(response.data));
-                dispatch(searchNewSuccess(response.data.results));
+                console.log(`REQUEST: https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=${query}&page=${page}`);
+                if (page === 1) {
+                    dispatch(searchNewSuccess(response.data.results));
+                    dispatch(loadSearchData(response.data));
+                    console.log('response.data.results = ', response.data.results);
+                } else {
+                    currResults.push(response.data.results);
+                    console.log('currResults = ', currResults);
+                    dispatch(searchNewSuccess(currResults));
+                    dispatch(loadSearchData(response.data));
+                }
             })
             .catch(err => {
                 console.log('error: ', err);

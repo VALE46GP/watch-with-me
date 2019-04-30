@@ -5,7 +5,15 @@ import { Waypoint } from 'react-waypoint';
 import './index.css';
 
 const Results = (props) => {
-    const { mode, watchlist, tmdbResults, loadResults, searchNew, searchData, searchInput, } = props;
+    const {
+        mode,
+        watchlist,
+        tmdbResults,
+        loadResults,
+        searchNew,
+        searchData,
+        searchInput,
+    } = props;
     const page = !searchData ? null : searchData.page;
     let results;
     switch (mode) {
@@ -22,6 +30,9 @@ const Results = (props) => {
     }
     const infiniteScroll = () => {
         if (tmdbResults && tmdbResults.length >= 20 && mode === 'MODE/ADD_NEW') {
+            console.log('searchInput = ', searchInput);
+            console.log('page = ', page);
+            console.log('tmdbResults = ', tmdbResults);
             return (
                 <Waypoint
                     onEnter={searchNew(searchInput, page + 1, tmdbResults)}
