@@ -6,14 +6,14 @@ import searchNew from "../../actions/searchNew";
 import loadResults from "../../actions/loadResults";
 
 const mapStateToProps = (state) => {
-    const { results, mode, watchlist, tmdbResults, searchData, SearchInput, } = state;
+    const { results, mode, watchlist, tmdbResults, searchData, searchInput, } = state;
     return ({
         results,
         mode,
         watchlist,
         tmdbResults,
         searchData,
-        SearchInput,
+        searchInput,
     })
 };
 
@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
     return ({
         handleSearchInputChange: (mode, searchInput) => dispatch(handleSearchInputChange(mode, searchInput)),
         handleModeChange: (mode) => dispatch(handleModeChange(mode)),
-        searchNew: (searchInput) => dispatch(searchNew(searchInput)),
+        searchNew: (searchInput, page, currResults) => dispatch(searchNew(searchInput, page, currResults)),
         loadResults: (results) => dispatch(loadResults(results)),
     });
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 import ListItemContainer from "../ListItem/container";
 import { Waypoint } from 'react-waypoint';
+import Button from 'react-bootstrap/Button';
 import './index.css';
 
 const Results = (props) => {
@@ -14,6 +15,7 @@ const Results = (props) => {
         searchInput,
     } = props;
     const page = !searchData ? null : searchData.page;
+    const query = !searchData ? null : searchData.query;
     let results;
     switch (mode) {
         case 'MODE/WATCHLIST':
@@ -40,6 +42,14 @@ const Results = (props) => {
             )
         }
     };
+    const loadMore = () => {
+        if (tmdbResults && tmdbResults.length >= 20 && mode === 'MODE/ADD_NEW') {
+            console.log('query = ', query);
+            console.log('page = ', page);
+            console.log('tmdbResults = ', tmdbResults);
+            searchNew(searchInput, page + 1, tmdbResults);
+        }
+    };
     return (
         !results
             ? <div>...</div>
@@ -52,7 +62,8 @@ const Results = (props) => {
                         return <ListItemContainer item={item} key={item.id}/>
                     })
                 }
-                {infiniteScroll()}
+                <Button onClick={() => loadMore()}>Load More</Button>
+                {/*{infiniteScroll()}*/}
             </div>
 
     );
