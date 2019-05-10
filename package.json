@@ -33,7 +33,8 @@
     "watch": "npm-watch",
     "build-css": "node-sass -o css css",
     "watch-css": "nodemon -e sass -x \"npm run build-css\"",
-    "start-dev": "npm-run-all start serve-dev watch build-css watch-css"
+    "start-dev": "npm-run-all start serve-dev watch build-css watch-css",
+    "start-db": "mongod --config /usr/local/etc/mongod.conf"
   },
   "eslintConfig": {
     "extends": "react-app"

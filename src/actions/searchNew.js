@@ -15,18 +15,13 @@ const searchNew = (query, page = 1, currResults = []) => {
     return dispatch => {
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=${query}&page=${page}`)
             .then((response) => {
-                console.log('searchNEW()');
-                console.log('QUERY = ', query);
-                console.log('PAGE = ', page);
                 if (page === 1) {
                     dispatch(searchNewSuccess(response.data.results));
                     dispatch(loadSearchData(response.data));
-                    console.log('response.data.results = ', response.data.results);
                 } else {
-                    const moreResults = currResults.concat(response.data.results);
-                    console.log('response.data.results = ', response.data.results);
-                    console.log('moreResults = ', moreResults);
-                    dispatch(searchNewSuccess(moreResults));
+                    dispatch(searchNewSuccess(
+                        currResults.concat(response.data.results)
+                    ));
                     dispatch(loadSearchData(response.data));
                 }
             })
