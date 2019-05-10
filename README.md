@@ -1,68 +1,102 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Watch-with-Me
 
-## Available Scripts
+This app aims to make it easier to find something to watch: specifically, a group of friends trying to find something to watch together.
+It serves as a unified watchlist for multiple streaming services and multiple friends.
 
-In the project directory, you can run:
+## Main Features
+
+##### Phase 0
+
+- Create users
+- Add friends
+- Search all movies by title
+- User can add/remove movies from their watchlist
+- Users can view their watchlist
+- Users can filter their watchlist for similarities with friends
+
+##### Phase 1
+
+- Password authentication for users
+- Expand movies to view details
+- Adding friend requires approval (unless enabled in user settings)
+
+##### Phase 2
+
+- Expand selection to include shows
+- Link media to streaming services
+
+##### Phase 3
+
+- Detailed search (by genre, actor, release date, etc)
+- Add available streaming services / preferences to user profiles
+- Detailed filtering of watchlist (streaming services, genre, etc)
+- View user's friends' watchlists
+- Suggest media to friends
+
+##### Phase 4
+
+- Dark/night Mode
+
+##### Phase 5
+
+- Import/View watchlists from streaming services
+
+##### Phase 6
+
+- Users can send each other messages
+
+## Getting Started
+
+While in development, run (in order):
+
+### `npm install`
+
+Installs dependencies needed for app
+
+### `npm start-db`
+
+Starts the database
+
+### `npm run watch`
+
+Builds the app and watches for changes to update
 
 ### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Serves the app on port 3000
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### `npm start-dev`
 
-### `npm test`
+Serves the app through a proxy server
+> Go to localhost:8080 in any browser.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Usage
 
-### `npm run build`
+- Enter username
+- Search movies by title
+- Add/remove movies from watchlist from any view
+- Go to Settings to add/remove friends, change username, change picture
+- Filter watchlist/search by movies in friends' watchlists
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Screenshots (Phase 0)
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+![watchlist](./screenshots/phase0-watchlist.jpg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![search](./screenshots/phase0-search.jpg)
 
-### `npm run eject`
+## Thoughts for Future Improvements
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Ability to block users
+- Consider deeper connection to external APIs (for reviews, etc.)
+- Add a history of watched items
+- Import ratings/history from streaming services if possible
+- Create cloud player or other system to allow friends to share streaming-services (unless this is illegal)
+- Create parent filters
+- Support multiple languages
+- Understand what is available based on current location (since streaming availability can depend on region)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Additional Information
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- This app was created by Eric Callari as a personal project in 2019.  If you like it, great!! Wanna give me a job? lol jk not really tho.
+- This app is not monetized in any way and is open-sourced and available to anyone (please credit me and use responsibly/ethically).
+- Please reduce, reuse, and recycle.
