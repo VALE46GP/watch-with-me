@@ -44,9 +44,6 @@ const Results = (props) => {
     };
     const loadMore = () => {
         if (tmdbResults && tmdbResults.length >= 20 && mode === 'MODE/ADD_NEW') {
-            console.log('query = ', query);
-            console.log('page = ', page);
-            console.log('tmdbResults = ', tmdbResults);
             return (
                 <Button onClick={() => searchNew(searchInput, page + 1, tmdbResults)}>Load More</Button>
             );

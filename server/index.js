@@ -31,6 +31,17 @@ handle().then((db, err) => {
         });
     });
 
+    // app.get('/user/USER_ID', (req, res) => {
+    //     model.getUser((err, user) => {
+    //         if (err) {
+    //             res.status(500).send(err.message);
+    //         } else {
+    //             logger('db', err || 'GET watchlist successful');
+    //             res.send({user});
+    //         }
+    //     });
+    // });
+
     app.post('/watchlist', (req, res) => {
         model.addMedia(null, req.body);
         logger('db', err || 'POST successful: ', req.body);

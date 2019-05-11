@@ -3,7 +3,7 @@ import RemoveMediaButton from './RemoveMediaButton';
 import AddMediaButton from './AddMediaButton';
 import './index.css';
 
-function ListItem(props) {
+const ListItem = (props) => {
     const {
         item,
         key,
@@ -36,6 +36,6 @@ function ListItem(props) {
             />
         </div>
     );
-}
+};
 
 export default ListItem;
