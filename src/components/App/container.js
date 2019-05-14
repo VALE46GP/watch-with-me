@@ -4,10 +4,11 @@ import loadWatchlist from '../../actions/loadWatchlist';
 import handleModeChange from '../../actions/handleModeChange';
 
 const mapStateToProps = (state) => {
-    const { results, mode } = state;
+    const { results, mode, user } = state;
     return ({
         results,
         mode,
+        user,
     });
 };
 
