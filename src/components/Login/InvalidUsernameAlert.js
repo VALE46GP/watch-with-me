@@ -8,7 +8,7 @@ const InvalidUsernameAlert = (props) => {
         : (
             <div>
                 <Alert variant='danger'>
-                    Username must be 1-16 characters without any spaces or special symbols.
+                    Username must be 1-16 characters without spaces and special symbols.
                 </Alert>
             </div>
         );

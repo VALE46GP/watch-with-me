@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 
 import loadResults from './loadResults';
 import loadWatchlist from './loadWatchlist';
-import login from './login';
+import setUser from './setUser';
 import handleSearchInputChange from './handleSearchInputChange';
 import handleModeChange from './handleModeChange';
 import searchNew from './searchNew';
@@ -14,7 +14,7 @@ const rootReducer = combineReducers({
     tmdbResults: searchNew,
     searchData: loadSearchData,
     results: loadResults,
-    user: login,
+    user: setUser,
     searchInput: handleSearchInputChange,
 });
 

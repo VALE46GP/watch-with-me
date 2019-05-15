@@ -1,7 +1,8 @@
 import Login from './index';
 import { connect } from 'react-redux';
 import login from '../../actions/login';
-import signup from '../../actions/signup';
+import registerUser from '../../actions/registerUser';
+import setUser from '../../actions/setUser';
 
 // const mapStateToProps = (state) => {
 //     const {  } = state;
@@ -12,7 +13,8 @@ import signup from '../../actions/signup';
 const mapDispatchToProps = (dispatch) => {
     return ({
         login: (username, password) => dispatch(login(username, password)),
-        signup: (username, password) => dispatch(signup(username, password)),
+        registerUser: (username, password) => dispatch(registerUser(username, password)),
+        setUser: (user) => dispatch(setUser(user)),
     });
 };
 

@@ -1,5 +1,5 @@
 
-const signup = (state = null, action) => {
+const registerUser = (state = null, action) => {
     switch (action.type) {
         case 'USERS/SIGNUP':
             return action.user || state;
@@ -8,4 +8,4 @@ const signup = (state = null, action) => {
     }
 };
 
-export default signup;
+export default registerUser;

@@ -9,24 +9,23 @@ import axios from "axios";
  * @param {string} password
  * @returns {object} action
  */
-const signup = (username, password) => {
+const registerUser = (username, password) => {
+    console.log('registerUser invoked with username: ', username);
     // check if username is valid
     if(!username.match(/^[0-9a-zA-Z]{1,16}$/)){
-        alert("ALERT: Username must be 1-16 characters without any spaces or special symbols!");
+        alert("ALERT: Username must be 1-16 characters without spaces or special symbols!");
     } else {
         return dispatch => {
-            // check if user exists
-
-            // if not, add user to db
             axios.get('/users', {
-                    params: {
-                        username,
-                        password: hash(password),
-                    }
-                })
+                params: {
+                    username,
+                    password: hash(password),
+                }
+            })
                 .then((response) => {
+                    console.log('RESPONSE = ', response);
                     const user = response.data.results;
-                    dispatch(signupSuccess(user));
+                    dispatch(registerUserSuccess(user));
                 })
                 .catch(err => {
                     console.log('error: ', err);
@@ -35,21 +34,20 @@ const signup = (username, password) => {
     }
 };
 
-// login user
-const signupSuccess = user => ({
-    type: constants.SIGNUP,
+const registerUserSuccess = user => ({
+    type: constants.REGISTER_USER,
     user,
 });
 
-// const loginStarted = () => ({
+// const registerUserStarted = () => ({
 //     type: LOAD_WATCHLIST_STARTED
 // });
 
-// const loginFailure = error => ({
+// const registerUserFailure = error => ({
 //     type: LOAD_WATCHLIST_FAILURE,
 //     payload: {
 //         error
 //     }
 // });
 
-export default signup;
+export default registerUser;

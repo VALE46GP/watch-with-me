@@ -31,16 +31,19 @@ handle().then((db, err) => {
         });
     });
 
-    // app.get('/user/USER_ID', (req, res) => {
-    //     model.getUser((err, user) => {
-    //         if (err) {
-    //             res.status(500).send(err.message);
-    //         } else {
-    //             logger('db', err || 'GET watchlist successful');
-    //             res.send({user});
-    //         }
-    //     });
-    // });
+    app.get('/user/USER_ID', (req, res) => {
+        model.login((err, user) => {
+            if (err) {
+                res.status(500).send(err.message);
+            } else if (user) {
+                logger('db', err || user.username + ' successfully logged in');
+                res.send({user});
+            } else {
+                logger('db', err || 'incorrect username or password');
+                res.send({user});
+            }
+        });
+    });
 
     app.post('/watchlist', (req, res) => {
         model.addMedia(null, req.body);
@@ -49,9 +52,11 @@ handle().then((db, err) => {
     });
 
     app.post('/user', (req, res) => {
-        model.addUser(null, req.body);
+        const newUser = model.registerUser(null, req.body, res);
         logger('db', err || 'POST successful: ', req.body);
-        res.sendStatus(201);
+        // console.log('NEWUSER = ', newUser);
+        // res.status(201);
+        // res.send('newUser');
     });
 
     app.delete('/watchlist', (req, res) => {

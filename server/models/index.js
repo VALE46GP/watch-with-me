@@ -11,18 +11,18 @@ db.once('open', () => console.log('We\'re connected.'));
 
 const getAll = (cb) => {
     Media.find()
-    .limit(25)
-    .exec(cb);
+        .limit(25)
+        .exec(cb);
 };
 
 const addMedia = (err, data) => {
-    const newEntry = new Media(data);
     Media.findOne({id: data.id}, (err, dup) => {
         if (err) {
             return console.error(err);
         } else if (dup) {
             return console.log(data.title, ' is already in watchlist');
         } else {
+            const newEntry = new Media(data);
             newEntry.save(err => {
                 if (err) return console.error(err);
             });
@@ -41,19 +41,47 @@ const deleteMedia = (err, criteria) => {
     }
 };
 
-const addUser = (err, data) => {
-    const newUser = new User(data);
-    if (err) {
-        return console.error(err);
-    } else {
-        newUser.save(err => {
-            if (err) return console.error(err);
-        });
-        console.log('User successfully saved');
-    }
+/**
+ * Register user and password
+ *
+ * @param {string} err
+ * @param {object} data: {username: {String}, password {String}}
+ * @returns {function} callback
+ */
+const registerUser = (err, data, res) => {
+    User.findOne({username: data.username}, (err, dup) => {
+        if (err) {
+            return console.error(err);
+        } else if (dup) {
+            return console.log(data.username, ' is already registered.');
+        } else {
+            const newUser = new User({
+                username: data.username,
+                password: data.password,
+                date_created: new Date(),
+                preferences: {},
+                friends: [],
+                watchlist: [],
+            });
+            newUser.save()
+                .then((user) => {
+                    console.log(user.username, ' registered.');
+                    res.send(user);
+                });
+        }
+    });
 };
 
-module.exports.addMedia = addMedia;
+const login = (cb, data) => {
+    User.findOne({
+        username: data.username,
+        password: data.password,
+    })
+        .exec(cb);
+};
+
 module.exports.getAll = getAll;
+module.exports.addMedia = addMedia;
 module.exports.deleteMedia = deleteMedia;
-module.exports.addUser = addUser;
+module.exports.registerUser = registerUser;
+module.exports.login = login;

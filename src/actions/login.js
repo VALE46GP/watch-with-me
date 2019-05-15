@@ -1,19 +1,26 @@
-import * as constants from '../constants/results';
+import * as constants from '../constants/users';
+import hash from '../helperFunctions/hash'
 import axios from "axios";
 
 /**
- * Set user
+ * Login user
  *
  * @param {string} username
+ * @param {string} password
  * @returns {object} action
  */
-const login = (username) => {
+const login = (username, password) => {
     // check if username is valid
     if(!username.match(/^[0-9a-zA-Z]{1,16}$/)){
         alert("ALERT: Username must be 1-16 characters without any spaces or special symbols!");
     } else {
         return dispatch => {
-            axios.get('/users?username=' + username)
+            axios.get('/users', {
+                params: {
+                    username,
+                    password: hash(password),
+                }
+            })
                 .then((response) => {
                     const user = response.data.results;
                     dispatch(loginSuccess(user));
@@ -26,7 +33,7 @@ const login = (username) => {
 };
 
 const loginSuccess = user => ({
-    type: constants.LOAD_WATCHLIST,
+    type: constants.LOGIN,
     user,
 });
 
