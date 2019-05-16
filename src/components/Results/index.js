@@ -7,7 +7,7 @@ import './index.css';
 const Results = (props) => {
     const {
         mode,
-        watchlist,
+        user,
         tmdbResults,
         loadResults,
         searchNew,
@@ -19,8 +19,8 @@ const Results = (props) => {
     let results;
     switch (mode) {
         case 'MODE/WATCHLIST':
-            results = watchlist;
-            loadResults(watchlist);
+            results = user.watchlist;
+            loadResults(user.watchlist);
             break;
         case 'MODE/ADD_NEW':
             results = tmdbResults;
@@ -29,19 +29,19 @@ const Results = (props) => {
         default:
             break;
     }
-    const infiniteScroll = () => {
-        if (tmdbResults && tmdbResults.length >= 20 && mode === 'MODE/ADD_NEW') {
-            console.log('searchInput = ', searchInput);
-            console.log('page = ', page);
-            console.log('tmdbResults = ', tmdbResults);
-            return (
-                <Waypoint
-                    onEnter={searchNew(searchInput, page + 1, tmdbResults)}
-                    // onLeave={null}
-                />
-            )
-        }
-    };
+    // const infiniteScroll = () => {
+    //     if (tmdbResults && tmdbResults.length >= 20 && mode === 'MODE/ADD_NEW') {
+    //         console.log('searchInput = ', searchInput);
+    //         console.log('page = ', page);
+    //         console.log('tmdbResults = ', tmdbResults);
+    //         return (
+    //             <Waypoint
+    //                 onEnter={searchNew(searchInput, page + 1, tmdbResults)}
+    //                 // onLeave={null}
+    //             />
+    //         )
+    //     }
+    // };
     const loadMore = () => {
         if (tmdbResults && tmdbResults.length >= 20 && mode === 'MODE/ADD_NEW') {
             return (
@@ -55,7 +55,7 @@ const Results = (props) => {
             : <div className="results-container">
                 {results
                     .map(item => {
-                        if (mode === 'MODE/ADD_NEW' && watchlist.some(e => e.title + e.id === item.title + item.id)) {
+                        if (mode === 'MODE/ADD_NEW' && user.watchlist.some(e => e.title + e.id === item.title + item.id)) {
                             item.inWatchlist = true;
                         }
                         return <ListItemContainer item={item} key={item.id}/>

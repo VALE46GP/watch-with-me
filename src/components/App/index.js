@@ -7,7 +7,7 @@ import './index.css';
 class App extends Component {
 
     componentDidMount() {
-        this.props.loadWatchlist();
+        // this.props.loadWatchlist();
         this.props.handleModeChange('MODE/WATCHLIST');
     }
 

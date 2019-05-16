@@ -1,22 +1,20 @@
 import ListItem from './index';
 import { connect } from 'react-redux';
-import loadWatchlist from "../../actions/loadWatchlist";
+import getUser from "../../actions/getUser";
 
 const mapStateToProps = (state) => {
     const {
-        watchlist,
         mode,
         user
     } = state;
     return ({
-        watchlist,
         mode,
         user,
     })
 };
 
 const mapDispatchToProps = dispatch => ({
-    loadWatchlist: () => dispatch(loadWatchlist()),
+    getUser: (username) => dispatch(getUser(username)),
 });
 
 const ListItemContainer = connect(mapStateToProps, mapDispatchToProps)(ListItem);

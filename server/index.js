@@ -21,14 +21,19 @@ handle().then((db, err) => {
     app.use(cors());
     // app.use('/api', api(app, db));
     app.get('/watchlist', (req, res) => {
-        model.getAll((err, results) => {
-            if (err) {
-                res.status(500).send(err.message);
-            } else {
-                logger('db', err || 'GET watchlist successful');
-                res.send({results});
+        console.log('REQUEST.query: ', req.query.username);
+        model.getUser(
+            req.query.username,
+            (err, user) => {
+                if (err) {
+                    res.status(500).send(err.message);
+                } else {
+                    logger('db', err || 'GET watchlist successful');
+                    user = user[0];
+                    res.send({user});
+                }
             }
-        });
+        );
     });
 
     app.get('/user/USER_ID', (req, res) => {

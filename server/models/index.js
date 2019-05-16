@@ -9,9 +9,8 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => console.log('We\'re connected.'));
 
-const getAll = (cb) => {
-    Media.find()
-        .limit(25)
+const getUser = (username, cb) => {
+    User.find({ username: username })
         .exec(cb);
 };
 
@@ -19,8 +18,6 @@ const addMedia = (err, data) => {
     if (err) return console.log(err);
     const { user, watchlist } = data;
 
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> user = ', user);
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> watchlist = ', watchlist);
     // add media to user's watchlist
     User.updateOne(
         { username: user.username },
@@ -33,18 +30,17 @@ const addMedia = (err, data) => {
             console.log('>> Must Update Audience <<');
         }
     );
-    console.log('media saved to db');
+    console.log('watchlist updated in db');
 };
 
 const deleteMedia = (err, data) => {
     if (err) return console.log(err);
-    const { user, watchlist } = data;
+    const { username, watchlist } = data;
 
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> user = ', user);
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> watchlist = ', watchlist);
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> user = ', username);
     // add media to user's watchlist
     User.updateOne(
-        { username: user.username },
+        { username: username },
         {
             watchlist: watchlist,
         },
@@ -54,7 +50,7 @@ const deleteMedia = (err, data) => {
             console.log('>> Must Update Audience <<');
         }
     );
-    console.log('media saved to db');
+    console.log('item removed from watchlist');
 };
 
 /**
@@ -94,30 +90,22 @@ const login = (err, data, res) => {
     User.findOne({
         username: data.username,
         password: data.password,
-    }, (err, dup) => {
+    }, (err, user) => {
         if (err) {
             return console.error(err);
-        } else if (!dup) {
+        } else if (!user) {
             return console.log('Incorrect username or password');
         } else {
-            const newUser = new User({
-                username: data.username,
-                password: data.password,
-                date_created: new Date(),
-                preferences: {},
-                friends: [],
-                watchlist: [],
-            });
-            newUser.save()
+            user.save()
                 .then((user) => {
-                    console.log(user.username, ' registered.');
+                    console.log(user.username, ' successfully logged in.');
                     res.send(user);
                 });
         }
     });
 };
 
-module.exports.getAll = getAll;
+module.exports.getUser = getUser;
 module.exports.addMedia = addMedia;
 module.exports.deleteMedia = deleteMedia;
 module.exports.registerUser = registerUser;

@@ -1,7 +1,7 @@
 import * as constants from '../constants/users';
 
 /**
- * set user
+ * set user (used on login)
  *
  * @param {object} user
  * @returns {object} action

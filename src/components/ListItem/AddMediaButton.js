@@ -16,7 +16,7 @@ class AddMediaButton extends Component {
     }
 
     handleClick() {
-        const { media, loadWatchlist, user } = this.props;
+        const { media, getUser, user } = this.props;
         const newMedia = Object.assign({}, media, {date_added: new Date()});
         let watchlist = user.watchlist ? user.watchlist : [];
         watchlist.push(newMedia);
@@ -31,7 +31,7 @@ class AddMediaButton extends Component {
                 }
             )
                 .then(() => {
-                    store.dispatch(() => loadWatchlist());
+                    store.dispatch(() => getUser(user.username));
                 })
                 .then(() => {
                     this.setState({ isLoading: false });

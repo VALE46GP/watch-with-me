@@ -7,8 +7,7 @@ const ListItem = (props) => {
     const {
         item,
         key,
-        watchlist,
-        loadWatchlist,
+        getUser,
         mode,
         user,
     } = props;
@@ -16,15 +15,15 @@ const ListItem = (props) => {
         ? <RemoveMediaButton
             media={item}
             user={user}
-            watchlist={watchlist}
-            loadWatchlist={loadWatchlist}
-            onClick={delete item.inWatchlist}
+            watchlist={user.watchlist}
+            getUser={getUser}
+            // onClick={delete item.inWatchlist}
         />
         : <AddMediaButton
             media={item}
             user={user}
-            watchlist={watchlist}
-            loadWatchlist={loadWatchlist}
+            watchlist={user.watchlist}
+            getUser={getUser}
         />;
 
     return (
