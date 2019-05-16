@@ -36,14 +36,25 @@ const addMedia = (err, data) => {
     console.log('media saved to db');
 };
 
-const deleteMedia = (err, criteria) => {
-    if (err) {
-        return console.error(err);
-    } else {
-        Media.deleteOne(criteria, err => {
-           if (err) console.error(err);
-        });
-    }
+const deleteMedia = (err, data) => {
+    if (err) return console.log(err);
+    const { user, watchlist } = data;
+
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> user = ', user);
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> watchlist = ', watchlist);
+    // add media to user's watchlist
+    User.updateOne(
+        { username: user.username },
+        {
+            watchlist: watchlist,
+        },
+        null,
+        () => {
+            // update audience
+            console.log('>> Must Update Audience <<');
+        }
+    );
+    console.log('media saved to db');
 };
 
 /**
