@@ -16,7 +16,8 @@ class RemoveMediaButton extends Component {
     }
 
     handleClick() {
-        const { media, getUser, user, watchlist } = this.props;
+        const { media, getUser, user } = this.props;
+        const watchlist = user.watchlist;
         const index = watchlist.findIndex((e) => e.id === media.id);
         watchlist.splice(index, 1);
         console.log('>>>>>>>>>>>>>>>>>>>>>>>>>clickDelete!!!  watchlist = ', watchlist);

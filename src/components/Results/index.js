@@ -57,6 +57,8 @@ const Results = (props) => {
                     .map(item => {
                         if (mode === 'MODE/ADD_NEW' && user.watchlist.some(e => e.title + e.id === item.title + item.id)) {
                             item.inWatchlist = true;
+                        } else if (mode === 'MODE/ADD_NEW') {
+                            item.inWatchlist = false;
                         }
                         return <ListItemContainer item={item} key={item.id}/>
                     })
