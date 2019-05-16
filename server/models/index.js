@@ -16,19 +16,24 @@ const getAll = (cb) => {
 };
 
 const addMedia = (err, data) => {
-    Media.findOne({id: data.id}, (err, dup) => {
-        if (err) {
-            return console.error(err);
-        } else if (dup) {
-            return console.log(data.title, ' is already in watchlist');
-        } else {
-            const newEntry = new Media(data);
-            newEntry.save(err => {
-                if (err) return console.error(err);
-            });
-            console.log(data.title, ' saved to db');
+    if (err) return console.log(err);
+    const { user, watchlist } = data;
+
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> user = ', user);
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> watchlist = ', watchlist);
+    // add media to user's watchlist
+    User.updateOne(
+        { username: user.username },
+        {
+            watchlist: watchlist,
+        },
+        null,
+        () => {
+            // update audience
+            console.log('>> Must Update Audience <<');
         }
-    });
+    );
+    console.log('media saved to db');
 };
 
 const deleteMedia = (err, criteria) => {
