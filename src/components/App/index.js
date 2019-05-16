@@ -5,12 +5,6 @@ import LoginContainer from '../Login/container';
 import './index.css';
 
 class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            modalShow: true,
-        };
-    };
 
     componentDidMount() {
         this.props.loadWatchlist();
@@ -18,8 +12,6 @@ class App extends Component {
     }
 
     render() {
-        const { modalShow } = this.state;
-        let modalClose = () => this.setState({ modalShow: false });
         const { user } = this.props;
 
         return user
@@ -31,8 +23,7 @@ class App extends Component {
             )
             : (
                 <LoginContainer
-                    show={modalShow}
-                    onHide={modalClose}
+                    show={!user}
                 />
             );
     }

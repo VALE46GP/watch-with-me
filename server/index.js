@@ -51,12 +51,14 @@ handle().then((db, err) => {
         res.sendStatus(201);
     });
 
-    app.post('/user', (req, res) => {
-        const newUser = model.registerUser(null, req.body, res);
+    app.post('/user/register', (req, res) => {
+        model.registerUser(null, req.body, res);
         logger('db', err || 'POST successful: ', req.body);
-        // console.log('NEWUSER = ', newUser);
-        // res.status(201);
-        // res.send('newUser');
+    });
+
+    app.post('/user/login', (req, res) => {
+        model.login(null, req.body, res);
+        logger('db', err || 'POST successful: ', req.body);
     });
 
     app.delete('/watchlist', (req, res) => {

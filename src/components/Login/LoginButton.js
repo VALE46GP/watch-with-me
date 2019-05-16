@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import axios from "axios";
 
-class RegisterUserButton extends Component {
+class LoginButton extends Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -20,7 +20,7 @@ class RegisterUserButton extends Component {
             alert("ALERT: Username must be 1-16 characters without any spaces or special symbols!");
         } else {
             // post newUser to db
-            axios.post('/user/register', {
+            axios.post('/user/login', {
                 username,
                 password: hash(password),
             })
@@ -39,7 +39,6 @@ class RegisterUserButton extends Component {
 
         return (
             <Button
-                variant="success"
                 disabled={isLoading}
                 onClick={!isLoading ? this.handleClick : null}
             >
@@ -47,10 +46,10 @@ class RegisterUserButton extends Component {
                     ? <Spinner animation="border" role="status">
                         <span className="sr-only">Loading...</span>
                     </Spinner>
-                    : 'Register New User'}
+                    : 'Login'}
             </Button>
         );
     }
 }
 
-export default RegisterUserButton;
+export default LoginButton;

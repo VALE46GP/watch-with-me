@@ -49,7 +49,9 @@ const deleteMedia = (err, criteria) => {
  * @returns {function} callback
  */
 const registerUser = (err, data, res) => {
-    User.findOne({username: data.username}, (err, dup) => {
+    User.findOne({
+        username: data.username
+    }, (err, dup) => {
         if (err) {
             return console.error(err);
         } else if (dup) {
@@ -72,12 +74,31 @@ const registerUser = (err, data, res) => {
     });
 };
 
-const login = (cb, data) => {
+const login = (err, data, res) => {
     User.findOne({
         username: data.username,
         password: data.password,
-    })
-        .exec(cb);
+    }, (err, dup) => {
+        if (err) {
+            return console.error(err);
+        } else if (!dup) {
+            return console.log('Incorrect username or password');
+        } else {
+            const newUser = new User({
+                username: data.username,
+                password: data.password,
+                date_created: new Date(),
+                preferences: {},
+                friends: [],
+                watchlist: [],
+            });
+            newUser.save()
+                .then((user) => {
+                    console.log(user.username, ' registered.');
+                    res.send(user);
+                });
+        }
+    });
 };
 
 module.exports.getAll = getAll;

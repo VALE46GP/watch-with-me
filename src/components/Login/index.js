@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import InvalidUsernameAlert from './InvalidUsernameAlert';
 import RegisterUserButton from './RegisterUserButton';
+import LoginButton from './LoginButton';
 import Modal from 'react-bootstrap/Modal';
-import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 
@@ -31,7 +31,7 @@ class Login extends Component {
 
     render() {
         const { username, password } = this.state;
-        const { login, registerUser, onHide, setUser, loadWatchlist } = this.props;
+        const { setUser } = this.props;
         return (
             <Modal
                 {...this.props}
@@ -65,9 +65,11 @@ class Login extends Component {
                         password={password}
                         setUser={setUser}
                     />
-                    <Button
-                        onClick={() => login(username, password)}
-                    >Login</Button>
+                    <LoginButton
+                        username={username}
+                        password={password}
+                        setUser={setUser}
+                    />
                 </Modal.Footer>
             </Modal>
         );
