@@ -31,7 +31,7 @@ class Login extends Component {
 
     render() {
         const { username, password } = this.state;
-        const { login, registerUser, onHide, setUser } = this.props;
+        const { login, registerUser, onHide, setUser, loadWatchlist } = this.props;
         return (
             <Modal
                 {...this.props}

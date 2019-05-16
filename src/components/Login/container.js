@@ -10,13 +10,12 @@ import setUser from '../../actions/setUser';
 //     });
 // };
 
-const mapDispatchToProps = (dispatch) => {
-    return ({
-        login: (username, password) => dispatch(login(username, password)),
-        registerUser: (username, password) => dispatch(registerUser(username, password)),
-        setUser: (user) => dispatch(setUser(user)),
-    });
-};
+const mapDispatchToProps = dispatch => ({
+    login: (username, password) => dispatch(login(username, password)),
+    registerUser: (username, password) => dispatch(registerUser(username, password)),
+    setUser: user => dispatch(setUser(user)),
+});
+
 
 const LoginContainer = connect(null, mapDispatchToProps)(Login);
 

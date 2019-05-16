@@ -5,10 +5,6 @@ import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import axios from "axios";
 
-// function simulateNetworkRequest() {
-//     return new Promise(resolve => setTimeout(resolve, 1000));
-// }
-
 class RegisterUserButton extends Component {
     constructor(props, context) {
         super(props, context);
@@ -32,15 +28,16 @@ class RegisterUserButton extends Component {
                 username,
                 password: hash(password),
             })
+                // setUser in app state
                 .then((response) => {
                     console.log('>>>>>>>>>>>>>>>>>>>>>>>>user: ', response.data);
-                    // setUser in app state
 // *************** THIS DOESN'T DISPATCH THE ACTION AND PRODUCES AN ERROR: 'n is not a function' ******************* //
-                    store.dispatch(() => {
-                        setUser(response.data);
-                    });
+//                     store.dispatch(() => {
+//                         console.log('Here I am: so close.');
+//                         return setUser(response.data);
+//                     });
 // *************** THIS TOO DOESN'T DISPATCH THE ACTION AND PRODUCES AN ERROR: 'n is not a function'**************** //
-                    // setUser(response.data);
+                    setUser(response.data);
                 })
                 .catch(err => {
                     console.log('error: ', err);

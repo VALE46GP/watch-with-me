@@ -1,8 +1,8 @@
 
 const setUser = (state = null, action) => {
+    console.log('I am the setUser reducer... action = ', action);
     switch (action.type) {
         case 'USERS/SET_USER':
-            console.log('HMMMM - setUser reducer action=', action);
             return action.user || state;
         default:
             return state;

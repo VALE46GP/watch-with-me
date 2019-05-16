@@ -6,9 +6,12 @@ import * as constants from '../constants/users';
  * @param {object} user
  * @returns {object} action
  */
-const setUser = user => ({
-    type: constants.SET_USER,
-    user,
-});
+const setUser = user => {
+    console.log('>>>>>>>>>> setUser action called!!');
+    return ({
+        type: constants.SET_USER,
+        user,
+    });
+};
 
 export default setUser;
