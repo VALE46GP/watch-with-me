@@ -7,7 +7,7 @@ import './index.css';
 const Results = (props) => {
     const {
         mode,
-        watchlist,
+        user,
         tmdbResults,
         loadResults,
         searchNew,
@@ -18,45 +18,51 @@ const Results = (props) => {
     const query = !searchData ? null : searchData.query;
     let results;
     switch (mode) {
+        // .filter(media => media.title.includes(searchInput))
         case 'MODE/WATCHLIST':
-            results = watchlist;
-            loadResults(watchlist);
+            results = user.watchlist;
+            loadResults(results);
             break;
         case 'MODE/ADD_NEW':
             results = tmdbResults;
-            loadResults(tmdbResults);
+            loadResults(results);
             break;
         default:
             break;
     }
-    const infiniteScroll = () => {
-        if (tmdbResults && tmdbResults.length >= 20 && mode === 'MODE/ADD_NEW') {
-            console.log('searchInput = ', searchInput);
-            console.log('page = ', page);
-            console.log('tmdbResults = ', tmdbResults);
-            return (
-                <Waypoint
-                    onEnter={searchNew(searchInput, page + 1, tmdbResults)}
-                    // onLeave={null}
-                />
-            )
-        }
-    };
+    // const infiniteScroll = () => {
+    //     if (tmdbResults && tmdbResults.length >= 20 && mode === 'MODE/ADD_NEW') {
+    //         console.log('searchInput = ', searchInput);
+    //         console.log('page = ', page);
+    //         console.log('tmdbResults = ', tmdbResults);
+    //         return (
+    //             <Waypoint
+    //                 onEnter={searchNew(searchInput, page + 1, tmdbResults)}
+    //                 // onLeave={null}
+    //             />
+    //         )
+    //     }
+    // };
     const loadMore = () => {
         if (tmdbResults && tmdbResults.length >= 20 && mode === 'MODE/ADD_NEW') {
             return (
-                <Button onClick={() => searchNew(searchInput, page + 1, tmdbResults)}>Load More</Button>
+                <Button onClick={() => searchNew(searchData.query, page + 1, tmdbResults)}>Load More</Button>
             );
         }
     };
+    if (searchInput && results) {
+        results = results.filter(media => media.title.toLowerCase().includes(searchInput.toLowerCase()));
+    }
     return (
         !results
             ? <div>...</div>
             : <div className="results-container">
                 {results
                     .map(item => {
-                        if (mode === 'MODE/ADD_NEW' && watchlist.some(e => e.title + e.id === item.title + item.id)) {
+                        if (mode === 'MODE/ADD_NEW' && user.watchlist.some(e => e.title + e.id === item.title + item.id)) {
                             item.inWatchlist = true;
+                        } else if (mode === 'MODE/ADD_NEW') {
+                            item.inWatchlist = false;
                         }
                         return <ListItemContainer item={item} key={item.id}/>
                     })

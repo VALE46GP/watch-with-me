@@ -6,11 +6,11 @@ import searchNew from "../../actions/searchNew";
 import loadResults from "../../actions/loadResults";
 
 const mapStateToProps = (state) => {
-    const { results, mode, watchlist, tmdbResults, searchData, searchInput, } = state;
+    const { results, mode, user, tmdbResults, searchData, searchInput, } = state;
     return ({
         results,
         mode,
-        watchlist,
+        user,
         tmdbResults,
         searchData,
         searchInput,

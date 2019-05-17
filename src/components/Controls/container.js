@@ -2,19 +2,26 @@ import Controls from './index';
 import { connect } from 'react-redux';
 import handleSearchInputChange from '../../actions/handleSearchInputChange';
 import handleModeChange from '../../actions/handleModeChange';
-import loadWatchlist from '../../actions/loadWatchlist';
 import loadResults from '../../actions/loadResults';
 import searchNew from '../../actions/searchNew';
+import getUser from "../../actions/getUser";
 
 const mapStateToProps = (state) => {
-    const { searchInput, results, mode, watchlist, tmdbResults, searchData } = state;
+    const {
+        searchInput,
+        results,
+        mode,
+        tmdbResults,
+        searchData,
+        user,
+    } = state;
     return ({
         searchInput,
         results,
         mode,
-        watchlist,
         tmdbResults,
         searchData,
+        user,
     });
 };
 
@@ -24,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
         handleModeChange: (mode) => dispatch(handleModeChange(mode)),
         searchNew: (searchInput) => dispatch(searchNew(searchInput)),
         loadResults: (results) => dispatch(loadResults(results)),
-        loadWatchlist: () => dispatch(loadWatchlist()),
+        getUser: (username) => dispatch(getUser(username)),
     });
 };
 

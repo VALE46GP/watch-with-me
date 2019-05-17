@@ -16,16 +16,22 @@ class RemoveMediaButton extends Component {
     }
 
     handleClick() {
-        const { data, loadWatchlist } = this.props;
+        const { media, getUser, user } = this.props;
+        const watchlist = user.watchlist;
+        const index = watchlist.findIndex((e) => e.id === media.id);
+        watchlist.splice(index, 1);
+        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>clickDelete!!!  watchlist = ', watchlist);
         this.setState({ isLoading: true }, () => {
-            axios.delete('/watchlist', {
-                params: {
-                    id: data.id,
-                    title: data.title,
+
+            axios.post(
+                '/watchlist',
+                {
+                    user,
+                    watchlist,
                 }
-        })
+            )
                 .then(() => {
-                    store.dispatch(() => loadWatchlist());
+                    store.dispatch(() => getUser(user.username));
                 })
                 .then(() => {
                     this.setState({ isLoading: false });

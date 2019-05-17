@@ -7,21 +7,21 @@ const ListItem = (props) => {
     const {
         item,
         key,
-        watchlist,
-        loadWatchlist,
+        getUser,
         mode,
+        user,
     } = props;
-    let addRemoveButton = mode === 'MODE/WATCHLIST' || item.hasOwnProperty('inWatchlist')
+    let addRemoveButton = mode === 'MODE/WATCHLIST' || item.inWatchlist
         ? <RemoveMediaButton
-            data={item}
-            watchlist={watchlist}
-            loadWatchlist={loadWatchlist}
-            onClick={delete item.inWatchlist}
+            media={item}
+            user={user}
+            getUser={getUser}
+            // onClick={delete item.inWatchlist}
         />
         : <AddMediaButton
-            data={item}
-            watchlist={watchlist}
-            loadWatchlist={loadWatchlist}
+            media={item}
+            user={user}
+            getUser={getUser}
         />;
 
     return (

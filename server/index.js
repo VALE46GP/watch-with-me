@@ -21,26 +21,34 @@ handle().then((db, err) => {
     app.use(cors());
     // app.use('/api', api(app, db));
     app.get('/watchlist', (req, res) => {
-        model.getAll((err, results) => {
+        console.log('REQUEST.query: ', req.query.username);
+        model.getUser(
+            req.query.username,
+            (err, user) => {
+                if (err) {
+                    res.status(500).send(err.message);
+                } else {
+                    logger('db', err || 'GET watchlist successful');
+                    user = user[0];
+                    res.send({user});
+                }
+            }
+        );
+    });
+
+    app.get('/user/USER_ID', (req, res) => {
+        model.login((err, user) => {
             if (err) {
                 res.status(500).send(err.message);
+            } else if (user) {
+                logger('db', err || user.username + ' successfully logged in');
+                res.send({user});
             } else {
-                logger('db', err || 'GET watchlist successful');
-                res.send({results});
+                logger('db', err || 'incorrect username or password');
+                res.send({user});
             }
         });
     });
-
-    // app.get('/user/USER_ID', (req, res) => {
-    //     model.getUser((err, user) => {
-    //         if (err) {
-    //             res.status(500).send(err.message);
-    //         } else {
-    //             logger('db', err || 'GET watchlist successful');
-    //             res.send({user});
-    //         }
-    //     });
-    // });
 
     app.post('/watchlist', (req, res) => {
         model.addMedia(null, req.body);
@@ -48,10 +56,14 @@ handle().then((db, err) => {
         res.sendStatus(201);
     });
 
-    app.post('/user', (req, res) => {
-        model.addUser(null, req.body);
+    app.post('/user/register', (req, res) => {
+        model.registerUser(null, req.body, res);
         logger('db', err || 'POST successful: ', req.body);
-        res.sendStatus(201);
+    });
+
+    app.post('/user/login', (req, res) => {
+        model.login(null, req.body, res);
+        logger('db', err || 'POST successful: ', req.body);
     });
 
     app.delete('/watchlist', (req, res) => {

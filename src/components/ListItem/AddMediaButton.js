@@ -4,10 +4,6 @@ import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import axios from "axios";
 
-// function simulateNetworkRequest() {
-//     return new Promise(resolve => setTimeout(resolve, 1000));
-// }
-
 class AddMediaButton extends Component {
     constructor(props, context) {
         super(props, context);
@@ -20,17 +16,22 @@ class AddMediaButton extends Component {
     }
 
     handleClick() {
-        const { data, loadWatchlist } = this.props;
-        const moreDetails = {
-            audience: [],
-            date_added: new Date(),
-        };
+        const { media, getUser, user } = this.props;
+        const newMedia = Object.assign({}, media, {date_added: new Date()});
+        let watchlist = user.watchlist ? user.watchlist : [];
+        watchlist.push(newMedia);
+        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>clickAdd!!!  watchlist = ', watchlist);
         this.setState({ isLoading: true }, () => {
-            axios.post('/watchlist',
-                Object.assign({}, data, moreDetails)
+
+            axios.post(
+                '/watchlist',
+                {
+                    user,
+                    watchlist,
+                }
             )
                 .then(() => {
-                    store.dispatch(() => loadWatchlist());
+                    store.dispatch(() => getUser(user.username));
                 })
                 .then(() => {
                     this.setState({ isLoading: false });
