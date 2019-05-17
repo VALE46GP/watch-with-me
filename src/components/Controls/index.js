@@ -18,6 +18,7 @@ const Controls = (props) => {
         user,
         tmdbResults,
         searchData,
+        results,
     } = props;
     const toggleMode = (value) => {
         handleModeChange(value);

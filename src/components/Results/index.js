@@ -18,13 +18,14 @@ const Results = (props) => {
     const query = !searchData ? null : searchData.query;
     let results;
     switch (mode) {
+        // .filter(media => media.title.includes(searchInput))
         case 'MODE/WATCHLIST':
             results = user.watchlist;
-            loadResults(user.watchlist);
+            loadResults(results);
             break;
         case 'MODE/ADD_NEW':
             results = tmdbResults;
-            loadResults(tmdbResults);
+            loadResults(results);
             break;
         default:
             break;
@@ -45,10 +46,13 @@ const Results = (props) => {
     const loadMore = () => {
         if (tmdbResults && tmdbResults.length >= 20 && mode === 'MODE/ADD_NEW') {
             return (
-                <Button onClick={() => searchNew(searchInput, page + 1, tmdbResults)}>Load More</Button>
+                <Button onClick={() => searchNew(searchData.query, page + 1, tmdbResults)}>Load More</Button>
             );
         }
     };
+    if (searchInput && results) {
+        results = results.filter(media => media.title.toLowerCase().includes(searchInput.toLowerCase()));
+    }
     return (
         !results
             ? <div>...</div>

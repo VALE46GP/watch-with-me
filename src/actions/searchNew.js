@@ -15,14 +15,15 @@ const searchNew = (query, page = 1, currResults = []) => {
     return dispatch => {
         axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${MOVIEDB_API_KEY}&query=${query}&page=${page}`)
             .then((response) => {
+                const data = Object.assign({}, response.data, {query: query});
                 if (page === 1) {
-                    dispatch(searchNewSuccess(response.data.results));
-                    dispatch(loadSearchData(response.data));
+                    dispatch(searchNewSuccess(data.results));
+                    dispatch(loadSearchData(data));
                 } else {
                     dispatch(searchNewSuccess(
-                        currResults.concat(response.data.results)
+                        currResults.concat(data.results)
                     ));
-                    dispatch(loadSearchData(response.data));
+                    dispatch(loadSearchData(data));
                 }
             })
             .catch(err => {
