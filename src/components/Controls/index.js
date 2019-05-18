@@ -71,9 +71,7 @@ const Controls = (props) => {
                     <Nav.Link onClick={() => toggleMode('MODE/ADD_NEW')}>Add New</Nav.Link>
                     <NavDropdown title={user.username} id="basic-nav-dropdown">
                         <NavDropdown.Item href="">My Account</NavDropdown.Item>
-                        <NavDropdown.Item href="">Friends</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="">Preferences</NavDropdown.Item>
+                        <NavDropdown.Item href="">My Friends</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 <Form inline
