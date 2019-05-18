@@ -7,6 +7,11 @@ import FormControl from 'react-bootstrap/FormControl';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Nav from 'react-bootstrap/Nav';
+import Form from 'react-bootstrap/Form';
+
 const Controls = (props) => {
     const {
         searchInput,
@@ -36,6 +41,7 @@ const Controls = (props) => {
         }
     };
     const handleChange = (event) => {
+        event.preventDefault();
         const query = event.target.value;
         handleSearchInputChange(mode, query);
     };
@@ -51,34 +57,37 @@ const Controls = (props) => {
         ? <p>{searchData.total_results + ' results found...'}</p>
         : null;
     return (
-        <div>
-            <ButtonToolbar>
-                <ToggleButtonGroup
-                    type="radio"
-                    name="mode"
-                    defaultValue="MODE/WATCHLIST"
-                    onChange={toggleMode}
+        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+            <Navbar.Brand onClick={() => toggleMode('MODE/ADD_NEW')}>Watch-with-Me</Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                    <Nav.Link onClick={() => toggleMode('MODE/WATCHLIST')}>Watchlist</Nav.Link>
+                    <Nav.Link onClick={() => toggleMode('MODE/ADD_NEW')}>Add New</Nav.Link>
+                    <NavDropdown title={user.username} id="basic-nav-dropdown">
+                        <NavDropdown.Item href="">My Account</NavDropdown.Item>
+                        <NavDropdown.Item href="">Friends</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="">Preferences</NavDropdown.Item>
+                    </NavDropdown>
+                </Nav>
+                <Form inline
+                      onSubmit={e => {
+                          e.preventDefault();
+                          handleChange();
+                      }}
                 >
-                    <ToggleButton
-                        value={'MODE/WATCHLIST'}
-                    >Watchlist</ToggleButton>
-                    <ToggleButton
-                        value={'MODE/ADD_NEW'}
-                    >Add New</ToggleButton>
-                </ToggleButtonGroup>
-            </ButtonToolbar>
-            <InputGroup className="mb-3">
-                <FormControl
-                    value={searchInput || ''}
-                    placeholder="Search..."
-                    aria-label="Search..."
-                    aria-describedby="basic-addon2"
-                    onChange={handleChange}
-                />
-                {searchButton}
-            </InputGroup>
-            {searchDataBlock}
-        </div>
+                    <FormControl
+                        value={searchInput || ''}
+                        placeholder="Search..."
+                        aria-label="Search..."
+                        aria-describedby="basic-addon2"
+                        onChange={handleChange}
+                    />
+                    {searchButton}
+                </Form>
+            </Navbar.Collapse>
+        </Navbar>
     );
 };
 

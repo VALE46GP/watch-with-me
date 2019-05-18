@@ -13,8 +13,7 @@ class App extends Component {
 
     render() {
         const { user } = this.props;
-
-        return user
+        const content = user
             ? (
                 <div className="App">
                     <ControlsContainer />
@@ -26,6 +25,26 @@ class App extends Component {
                     show={!user}
                 />
             );
+
+        return (
+            <div>
+                <div className="area">
+                    <ul className="circles">
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                {content}
+            </div>
+        )
     }
 }
 
