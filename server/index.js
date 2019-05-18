@@ -51,8 +51,18 @@ handle().then((db, err) => {
     });
 
     app.post('/watchlist', (req, res) => {
-        model.addMedia(null, req.body);
-        logger('db', err || 'POST successful: ', req.body);
+        switch (req.body.type) {
+            case 'addMedia':
+                model.addMedia(null, req.body);
+                logger('db', err || 'addMedia POST successful: ', req.body);
+                break;
+            case'removeMedia':
+                model.removeMedia(null, req.body);
+                logger('db', err || 'removeMedia POST successful: ', req.body);
+                break;
+            default:
+                break;
+        }
         res.sendStatus(201);
     });
 
