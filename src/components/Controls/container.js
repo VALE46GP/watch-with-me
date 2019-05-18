@@ -9,7 +9,6 @@ import getUser from "../../actions/getUser";
 const mapStateToProps = (state) => {
     const {
         searchInput,
-        results,
         mode,
         tmdbResults,
         searchData,
@@ -17,7 +16,6 @@ const mapStateToProps = (state) => {
     } = state;
     return ({
         searchInput,
-        results,
         mode,
         tmdbResults,
         searchData,

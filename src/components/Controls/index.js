@@ -1,15 +1,11 @@
 import React from 'react';
 import './index.css';
 import Button from 'react-bootstrap/Button';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import InputGroup from 'react-bootstrap/InputGroup';
-import FormControl from 'react-bootstrap/FormControl';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
-import ToggleButton from 'react-bootstrap/ToggleButton';
-
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Nav from 'react-bootstrap/Nav';
+import FormControl from 'react-bootstrap/FormControl';
 import Form from 'react-bootstrap/Form';
 
 const Controls = (props) => {
@@ -23,8 +19,8 @@ const Controls = (props) => {
         user,
         tmdbResults,
         searchData,
-        results,
     } = props;
+
     const toggleMode = (value) => {
         handleModeChange(value);
         handleSearchInputChange(mode, '');
@@ -40,11 +36,13 @@ const Controls = (props) => {
                 break;
         }
     };
+
     const handleChange = (event) => {
         event.preventDefault();
         const query = event.target.value;
         handleSearchInputChange(mode, query);
     };
+
     const searchButton = mode === 'MODE/ADD_NEW'
         ? <InputGroup.Append>
             <Button
@@ -53,9 +51,16 @@ const Controls = (props) => {
             >Search</Button>
         </InputGroup.Append>
         : null;
-    const searchDataBlock = (searchData && mode === 'MODE/ADD_NEW')
-        ? <p>{searchData.total_results + ' results found...'}</p>
-        : null;
+
+    let searchPlaceholder = '';
+    if (mode === 'MODE/ADD_NEW' && searchData) {
+        searchPlaceholder = searchData.total_results + ' results found...';
+    } else if (mode === 'MODE/ADD_NEW') {
+        searchPlaceholder = 'Search...';
+    } else {
+        searchPlaceholder = 'Filter...';
+    }
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand onClick={() => toggleMode('MODE/ADD_NEW')}>Watch-with-Me</Navbar.Brand>
@@ -79,7 +84,7 @@ const Controls = (props) => {
                 >
                     <FormControl
                         value={searchInput || ''}
-                        placeholder="Search..."
+                        placeholder={searchPlaceholder}
                         aria-label="Search..."
                         aria-describedby="basic-addon2"
                         onChange={handleChange}

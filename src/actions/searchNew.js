@@ -1,6 +1,8 @@
-import * as constants from '../constants/results';
+import * as results_constants from '../constants/results';
+import * as controls_constants from '../constants/controls';
 import axios from "axios";
 import MOVIEDB_API_KEY from "../config/movieDb";
+import handleSearchInputChange from './handleSearchInputChange';
 
 
 /**
@@ -26,6 +28,9 @@ const searchNew = (query, page = 1, currResults = []) => {
                     dispatch(loadSearchData(data));
                 }
             })
+            .then(() => {
+                dispatch(handleSearchInputChange(controls_constants.HANDLE_SEARCH_INPUT_CHANGE, ''));
+            })
             .catch(err => {
                 console.log('error: ', err);
             });
@@ -33,12 +38,12 @@ const searchNew = (query, page = 1, currResults = []) => {
 };
 
 const loadSearchData = searchData => ({
-    type: constants.LOAD_SEARCH_DATA,
+    type: results_constants.LOAD_SEARCH_DATA,
     searchData,
 });
 
 const searchNewSuccess = tmdbResults => ({
-    type: constants.SEARCH_NEW,
+    type: results_constants.SEARCH_NEW,
     tmdbResults,
 });
 
