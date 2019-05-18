@@ -21,13 +21,16 @@ class AddMediaButton extends Component {
         let watchlist = user.watchlist ? user.watchlist : [];
         watchlist.push(newMedia);
         console.log('>>>>>>>>>>>>>>>>>>>>>>>>>clickAdd!!!  watchlist = ', watchlist);
+        console.log('>>>>>>>>>>>>>>>>>>>>>>>>> tmdb_id = ', media.id);
         this.setState({ isLoading: true }, () => {
 
             axios.post(
                 '/watchlist',
                 {
+                    type: 'addMedia',
                     user,
                     watchlist,
+                    tmdb_id: media.id,
                 }
             )
                 .then(() => {

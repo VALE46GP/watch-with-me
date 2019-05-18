@@ -26,8 +26,10 @@ class RemoveMediaButton extends Component {
             axios.post(
                 '/watchlist',
                 {
+                    type: 'removeMedia',
                     user,
                     watchlist,
+                    tmdb_id: media.id,
                 }
             )
                 .then(() => {

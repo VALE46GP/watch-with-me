@@ -8,7 +8,6 @@ import axios from "axios";
  * @returns {object} action
  */
 const getUser = username => {
-    console.log('>>>>>>>>>> getUser action called!!');
     console.log('USERNAME = ', username);
 
 
@@ -20,12 +19,9 @@ const getUser = username => {
         })
             .then((response) => {
                 const { user } = response.data;
-                console.log('USER (before map) = ', user);
                 user.watchlist = user.watchlist
                     ? user.watchlist.sort((a, b) => new Date(b.date_added) - new Date(a.date_added))
                     : [];
-                console.log('getUser watchlist = ', user.watchlist.map(media => media.title));
-                console.log('USER = ', user);
                 dispatch(getUserSuccess(user));
             })
             .catch(err => {
