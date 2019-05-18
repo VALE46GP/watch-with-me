@@ -62,7 +62,7 @@ const Controls = (props) => {
     }
 
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar collapseOnSelect expand="lg" fixed="top" bg="dark" variant="dark">
             <Navbar.Brand onClick={() => toggleMode('MODE/ADD_NEW')}>Watch-with-Me</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
