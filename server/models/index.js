@@ -72,10 +72,13 @@ const removeMedia = (err, data) => {
                     } else {
                         let index = found.audience
                             .findIndex(username => username === user.username);
-
                         found.audience.splice(index, 1);
                         console.log('>>>>>><<><><><><><><><> found.audience = ', found.audience);
-                        found.save();
+                        if (found.audience.length) {
+                            found.save();
+                        } else {
+                            found.delete();
+                        }
                     }
                 }
             );
