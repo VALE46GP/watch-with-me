@@ -50,9 +50,10 @@ const Results = (props) => {
             );
         }
     };
-    if (searchInput && results) {
+    if (searchInput && results && mode === 'MODE/WATCHLIST') {
         results = results.filter(media => media.title.toLowerCase().includes(searchInput.toLowerCase()));
     }
+
     return (
         !results
             ?   <div>

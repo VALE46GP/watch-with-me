@@ -8,6 +8,7 @@ It serves as a unified watchlist for multiple streaming services and multiple fr
 ##### Phase 0
 
 - Create users
+- Password authentication for users
 - Add friends
 - Search all movies by title
 - User can add/remove movies from their watchlist
@@ -16,7 +17,6 @@ It serves as a unified watchlist for multiple streaming services and multiple fr
 
 ##### Phase 1
 
-- Password authentication for users
 - Expand movies to view details
 - Adding friend requires approval (unless enabled in user settings)
 
