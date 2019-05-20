@@ -40,7 +40,7 @@ class Login extends Component {
                 centered
             >
                 <Modal.Body>
-                    <h4>Login</h4>
+                    <h4>Watch-with-Me</h4>
                     <InvalidUsernameAlert username={username}/>
                     <InputGroup className="mb-3">
                         <FormControl

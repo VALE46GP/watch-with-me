@@ -1,6 +1,7 @@
 import React from 'react';
 import ListItemContainer from "../ListItem/container";
-import { Waypoint } from 'react-waypoint';
+import FriendsContainer from '../Friends/container.js';
+// import { Waypoint } from 'react-waypoint';
 import Button from 'react-bootstrap/Button';
 import './index.css';
 
@@ -15,7 +16,6 @@ const Results = (props) => {
         searchInput,
     } = props;
     const page = !searchData ? null : searchData.page;
-    const query = !searchData ? null : searchData.query;
     let results;
     switch (mode) {
         // .filter(media => media.title.includes(searchInput))
@@ -59,19 +59,24 @@ const Results = (props) => {
             ?   <div>
                     ...
                 </div>
-            :   <div className="results-container">
-                    {results
-                        .map(item => {
-                            if (mode === 'MODE/ADD_NEW' && user.watchlist.some(e => e.title + e.id === item.title + item.id)) {
-                                item.inWatchlist = true;
-                            } else if (mode === 'MODE/ADD_NEW') {
-                                item.inWatchlist = false;
-                            }
-                            return <ListItemContainer item={item} key={item.id}/>
-                        })
-                    }
-                    {loadMore()}
-                    {/*{infiniteScroll()}*/}
+            :   <div>
+                    <FriendsContainer
+                        show={true}
+                    />
+                    <div className="results-container">
+                        {results
+                            .map(item => {
+                                if (mode === 'MODE/ADD_NEW' && user.watchlist.some(e => e.title + e.id === item.title + item.id)) {
+                                    item.inWatchlist = true;
+                                } else if (mode === 'MODE/ADD_NEW') {
+                                    item.inWatchlist = false;
+                                }
+                                return <ListItemContainer item={item} key={item.id}/>
+                            })
+                        }
+                        {loadMore()}
+                        {/*{infiniteScroll()}*/}
+                    </div>
                 </div>
     );
 };
