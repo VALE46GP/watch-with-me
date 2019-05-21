@@ -139,8 +139,27 @@ const login = (err, data, res) => {
     });
 };
 
+const updateFriends = (err, data, res) => {
+    User.findOneAndUpdate(
+        { username: data.username },
+        { friends: data.friends },
+        null,
+        (err, user) => {
+            if (err) {
+                return console.error(err);
+            } else if (!user) {
+                return console.log('Error updating friends in db');
+            } else {
+                console.log('Successfully updated friends db.');
+                res.send(user);
+            }
+        }
+    );
+};
+
 module.exports.getUser = getUser;
 module.exports.addMedia = addMedia;
 module.exports.removeMedia = removeMedia;
 module.exports.registerUser = registerUser;
+module.exports.updateFriends = updateFriends;
 module.exports.login = login;

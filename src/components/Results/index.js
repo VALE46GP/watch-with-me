@@ -1,5 +1,5 @@
 import React from 'react';
-import ListItemContainer from "../ListItem/container";
+import ListItemContainer from "../ResultsListItem/container";
 import FriendsContainer from '../Friends/container.js';
 // import { Waypoint } from 'react-waypoint';
 import Button from 'react-bootstrap/Button';

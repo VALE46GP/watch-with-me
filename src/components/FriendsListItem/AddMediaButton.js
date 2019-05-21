@@ -25,9 +25,8 @@ class AddMediaButton extends Component {
         this.setState({ isLoading: true }, () => {
 
             axios.post(
-                '/watchlist',
+                '/watchlist/add-media',
                 {
-                    type: 'addMedia',
                     user,
                     watchlist,
                     tmdb_id: media.id,

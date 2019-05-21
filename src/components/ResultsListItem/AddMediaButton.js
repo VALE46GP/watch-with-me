@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import axios from "axios";
 
-class RemoveMediaButton extends Component {
+class AddMediaButton extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -17,16 +17,16 @@ class RemoveMediaButton extends Component {
 
     handleClick() {
         const { media, getUser, user } = this.props;
-        const watchlist = user.watchlist;
-        const index = watchlist.findIndex((e) => e.id === media.id);
-        watchlist.splice(index, 1);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>clickDelete!!!  watchlist = ', watchlist);
+        const newMedia = Object.assign({}, media, {date_added: new Date()});
+        let watchlist = user.watchlist ? user.watchlist : [];
+        watchlist.push(newMedia);
+        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>clickAdd!!!  watchlist = ', watchlist);
+        console.log('>>>>>>>>>>>>>>>>>>>>>>>>> tmdb_id = ', media.id);
         this.setState({ isLoading: true }, () => {
 
             axios.post(
-                '/watchlist',
+                '/watchlist/add-media',
                 {
-                    type: 'removeMedia',
                     user,
                     watchlist,
                     tmdb_id: media.id,
@@ -46,7 +46,7 @@ class RemoveMediaButton extends Component {
 
         return (
             <Button
-                variant="danger"
+                variant="primary"
                 disabled={isLoading}
                 onClick={!isLoading ? this.handleClick : null}
             >
@@ -54,10 +54,10 @@ class RemoveMediaButton extends Component {
                     ? <Spinner animation="border" role="status">
                         <span className="sr-only">Loading...</span>
                     </Spinner>
-                    : '-'}
+                    : '+'}
             </Button>
         );
     }
 }
 
-export default RemoveMediaButton;
+export default AddMediaButton;

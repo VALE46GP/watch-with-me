@@ -5,8 +5,8 @@ import cors from 'cors';
 import handle from './lib/watch-with-me';
 import logger from './lib/logger';
 import http from "http";
-import api from './apis/api';
 import model from "./models/index";
+// import api from './apis/api';
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -50,19 +50,15 @@ handle().then((db, err) => {
         });
     });
 
-    app.post('/watchlist', (req, res) => {
-        switch (req.body.type) {
-            case 'addMedia':
-                model.addMedia(null, req.body);
-                logger('db', err || 'addMedia POST successful: ', req.body);
-                break;
-            case'removeMedia':
-                model.removeMedia(null, req.body);
-                logger('db', err || 'removeMedia POST successful: ', req.body);
-                break;
-            default:
-                break;
-        }
+    app.post('/watchlist/add-media', (req, res) => {
+        model.addMedia(null, req.body);
+        logger('db', err || 'addMedia POST successful: ', req.body);
+        res.sendStatus(201);
+    });
+
+    app.post('/watchlist/remove-media', (req, res) => {
+        model.removeMedia(null, req.body);
+        logger('db', err || 'removeMedia POST successful: ', req.body);
         res.sendStatus(201);
     });
 
@@ -76,11 +72,9 @@ handle().then((db, err) => {
         logger('db', err || 'POST successful: ', req.body);
     });
 
-    app.delete('/watchlist', (req, res) => {
-        console.log('DELETE: req = ', req);
-        model.deleteMedia(null, req.query);
-        logger('db', err || 'DELETE successful: ', req.query);
-        res.sendStatus(202);
+    app.post('/user/add-friend', (req, res) => {
+        model.updateFriends(null, req.body, res);
+        logger('db', err || 'POST successful: ', req.body);
     });
 
     app.get('*', (req, res) => {
