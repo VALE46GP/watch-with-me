@@ -1,5 +1,6 @@
-.friend-btn-div {
+.add-remove-friend-button {
     cursor: pointer;
+    float: right;
     flex: none;
 }
 
@@ -7,4 +8,8 @@
     width:100%;
     position: relative;
     display: flex;
+}
+
+.friends-list-item-username {
+    flex: auto;
 }

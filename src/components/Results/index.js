@@ -1,9 +1,9 @@
 import React from 'react';
 import ListItemContainer from "../ResultsListItem/container";
 import FriendsContainer from '../Friends/container.js';
-// import { Waypoint } from 'react-waypoint';
 import Button from 'react-bootstrap/Button';
 import './index.css';
+// import { Waypoint } from 'react-waypoint';
 
 const Results = (props) => {
     const {
@@ -14,6 +14,7 @@ const Results = (props) => {
         searchNew,
         searchData,
         searchInput,
+        activeModal
     } = props;
     const page = !searchData ? null : searchData.page;
     let results;
@@ -61,7 +62,7 @@ const Results = (props) => {
                 </div>
             :   <div>
                     <FriendsContainer
-                        show={true}
+                        show={activeModal === 'friends'}
                     />
                     <div className="results-container">
                         {results

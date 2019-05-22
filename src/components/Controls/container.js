@@ -5,6 +5,7 @@ import handleModeChange from '../../actions/handleModeChange';
 import loadResults from '../../actions/loadResults';
 import searchNew from '../../actions/searchNew';
 import getUser from "../../actions/getUser";
+import setActiveModal from "../../actions/setActiveModal";
 
 const mapStateToProps = (state) => {
     const {
@@ -30,6 +31,7 @@ const mapDispatchToProps = (dispatch) => {
         searchNew: (searchInput) => dispatch(searchNew(searchInput)),
         loadResults: (results) => dispatch(loadResults(results)),
         getUser: (username) => dispatch(getUser(username)),
+        setActiveModal: (activeModal) => dispatch(setActiveModal(activeModal)),
     });
 };
 

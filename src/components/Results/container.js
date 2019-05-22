@@ -6,7 +6,15 @@ import searchNew from "../../actions/searchNew";
 import loadResults from "../../actions/loadResults";
 
 const mapStateToProps = (state) => {
-    const { results, mode, user, tmdbResults, searchData, searchInput, } = state;
+    const {
+        results,
+        mode,
+        user,
+        tmdbResults,
+        searchData,
+        searchInput,
+        activeModal,
+    } = state;
     return ({
         results,
         mode,
@@ -14,6 +22,7 @@ const mapStateToProps = (state) => {
         tmdbResults,
         searchData,
         searchInput,
+        activeModal,
     })
 };
 

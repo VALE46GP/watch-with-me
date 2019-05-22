@@ -4,7 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import FriendsListItem from '../FriendsListItem/container.js'
+import FriendsListItem from '../FriendsListItem/container.js';
+import './index.css';
 
 class Friends extends Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class Friends extends Component {
 
     render() {
         const { username } = this.state;
-        const { user } = this.props;
+        const { user, setActiveModal } = this.props;
         // const { addFriend, removeFriend } = this.props;
         return (
             <div>
@@ -34,10 +35,14 @@ class Friends extends Component {
                     centered
                 >
                     <Modal.Body>
-                        <h4>My Friends</h4>
-                        <Button
-                            variant="outline-danger"
-                        >X</Button>
+                        <span className="friends-modal-header">
+                            <h4 className="friends-modal-title">My Friends</h4>
+                            <Button
+                                className="friends-modal-close"
+                                variant="outline-danger"
+                                onClick={() => setActiveModal('none')}
+                            >X</Button>
+                        </span>
                         <InvalidUsernameAlert username={username}/>
                         <InputGroup className="mb-3">
                             <FormControl

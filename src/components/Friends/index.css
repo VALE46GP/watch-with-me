@@ -1,3 +1,12 @@
-.friends-list {
+.friends-modal-header {
+    display: flex;
+}
 
+.friends-modal-title {
+    flex: auto;
+}
+
+.friends-modal-close {
+    float: right;
+    flex: none;
 }

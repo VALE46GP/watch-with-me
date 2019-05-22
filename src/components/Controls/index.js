@@ -19,6 +19,7 @@ const Controls = (props) => {
         user,
         tmdbResults,
         searchData,
+        setActiveModal,
     } = props;
 
     const toggleMode = (value) => {
@@ -71,7 +72,7 @@ const Controls = (props) => {
                     <Nav.Link onClick={() => toggleMode('MODE/ADD_NEW')}>Add New</Nav.Link>
                     <NavDropdown title={user.username} id="basic-nav-dropdown">
                         <NavDropdown.Item href="">My Account</NavDropdown.Item>
-                        <NavDropdown.Item href="">My Friends</NavDropdown.Item>
+                        <NavDropdown.Item onClick={() => setActiveModal('friends')}>My Friends</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
                 <Form inline

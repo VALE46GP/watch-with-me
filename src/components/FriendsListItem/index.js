@@ -25,10 +25,10 @@ const FriendsListItem = (props) => {
 
     return (
         <div className="friends-list-item" key={key}>
-            <div className="friend-btn-div">
+            <h2 className="friends-list-item-username">{item}</h2>
+            <div className="add-remove-friend-button">
                 {addRemoveButton}
             </div>
-            <h2>{item}</h2>
         </div>
     );
 };

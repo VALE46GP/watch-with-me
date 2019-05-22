@@ -1,6 +1,6 @@
 import FriendsListItem from './index';
 import { connect } from 'react-redux';
-import getUser from "../../actions/getUser";
+import getUser from '../../actions/getUser';
 
 const mapStateToProps = (state) => {
     const {
