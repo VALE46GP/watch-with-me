@@ -145,6 +145,7 @@ const updateFriends = (err, data, res) => {
         { friends: data.friends },
         null,
         (err, user) => {
+            console.log('data = ', data);
             if (err) {
                 return console.error(err);
             } else if (!user) {

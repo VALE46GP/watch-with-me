@@ -1,15 +1,10 @@
-.btn-div {
-    z-index: 2;
+.friend-btn-div {
     cursor: pointer;
-    position: absolute;
+    flex: none;
 }
 
-.list-item {
+.friends-list-item {
     width:100%;
     position: relative;
-}
-
-.media-img {
-    width: 100%;
-    position: relative;
+    display: flex;
 }

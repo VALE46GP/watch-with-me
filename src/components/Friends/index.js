@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import InvalidUsernameAlert from '../Login/InvalidUsernameAlert';
+import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
+import FriendsListItem from '../FriendsListItem/container.js'
 
 class Friends extends Component {
     constructor(props) {
@@ -33,6 +35,9 @@ class Friends extends Component {
                 >
                     <Modal.Body>
                         <h4>My Friends</h4>
+                        <Button
+                            variant="outline-danger"
+                        >X</Button>
                         <InvalidUsernameAlert username={username}/>
                         <InputGroup className="mb-3">
                             <FormControl
@@ -44,7 +49,11 @@ class Friends extends Component {
                             />
                         </InputGroup>
                         <div className="friends-list">
-                            { user.friends.map(friend => <p>{friend}</p>) }
+                            { user.friends.map(item => <FriendsListItem
+                                key={item}
+                                item={item}
+                                isFriend={true}
+                            />) }
                         </div>
                     </Modal.Body>
                 </Modal>

@@ -1,41 +1,36 @@
 import React from 'react';
-import RemoveMediaButton from './RemoveMediaButton';
-import AddMediaButton from './AddMediaButton';
+import RemoveFriendButton from './RemoveFriendButton';
+import AddFriendButton from './AddFriendButton';
 import './index.css';
 
-const ListItem = (props) => {
+const FriendsListItem = (props) => {
     const {
         item,
+        isFriend,
         key,
         getUser,
-        mode,
         user,
     } = props;
-    let addRemoveButton = mode === 'MODE/WATCHLIST' || item.inWatchlist
-        ? <RemoveMediaButton
-            media={item}
+    let addRemoveButton = isFriend
+        ? <RemoveFriendButton
+            item={item}
             user={user}
             getUser={getUser}
-            // onClick={delete item.inWatchlist}
         />
-        : <AddMediaButton
-            media={item}
+        : <AddFriendButton
+            item={item}
             user={user}
             getUser={getUser}
         />;
 
     return (
-        <div className="list-item" key={key}>
-            <div className="btn-div">
+        <div className="friends-list-item" key={key}>
+            <div className="friend-btn-div">
                 {addRemoveButton}
             </div>
-            <img
-                className="media-img"
-                src={`https://image.tmdb.org/t/p/original${item.poster_path}`}
-                alt={item.title}
-            />
+            <h2>{item}</h2>
         </div>
     );
 };
 
-export default ListItem;
+export default FriendsListItem;

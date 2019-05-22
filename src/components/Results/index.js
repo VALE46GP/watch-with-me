@@ -71,7 +71,7 @@ const Results = (props) => {
                                 } else if (mode === 'MODE/ADD_NEW') {
                                     item.inWatchlist = false;
                                 }
-                                return <ListItemContainer item={item} key={item.id}/>
+                                return <ListItemContainer item={item} key={item.id} />
                             })
                         }
                         {loadMore()}

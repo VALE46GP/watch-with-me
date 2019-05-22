@@ -72,9 +72,9 @@ handle().then((db, err) => {
         logger('db', err || 'POST successful: ', req.body);
     });
 
-    app.post('/user/add-friend', (req, res) => {
+    app.post('/user/update-friends', (req, res) => {
         model.updateFriends(null, req.body, res);
-        logger('db', err || 'POST successful: ', req.body);
+        logger('db', err || 'update-friends POST successful: ', req.body);
     });
 
     app.get('*', (req, res) => {

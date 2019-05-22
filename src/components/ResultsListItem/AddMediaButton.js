@@ -20,8 +20,6 @@ class AddMediaButton extends Component {
         const newMedia = Object.assign({}, media, {date_added: new Date()});
         let watchlist = user.watchlist ? user.watchlist : [];
         watchlist.push(newMedia);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>clickAdd!!!  watchlist = ', watchlist);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>>>> tmdb_id = ', media.id);
         this.setState({ isLoading: true }, () => {
 
             axios.post(

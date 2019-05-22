@@ -20,7 +20,6 @@ class RemoveMediaButton extends Component {
         const watchlist = user.watchlist;
         const index = watchlist.findIndex((e) => e.id === media.id);
         watchlist.splice(index, 1);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>clickDelete!!!  watchlist = ', watchlist);
         this.setState({ isLoading: true }, () => {
 
             axios.post(

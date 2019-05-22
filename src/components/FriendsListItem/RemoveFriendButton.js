@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import axios from "axios";
 
-class AddMediaButton extends Component {
+class RemoveFriendButton extends Component {
     constructor(props, context) {
         super(props, context);
 
@@ -16,20 +16,16 @@ class AddMediaButton extends Component {
     }
 
     handleClick() {
-        const { media, getUser, user } = this.props;
-        const newMedia = Object.assign({}, media, {date_added: new Date()});
-        let watchlist = user.watchlist ? user.watchlist : [];
-        watchlist.push(newMedia);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>>>>clickAdd!!!  watchlist = ', watchlist);
-        console.log('>>>>>>>>>>>>>>>>>>>>>>>>> tmdb_id = ', media.id);
+        const { item, getUser, user } = this.props;
+        const friends = user.friends.filter((e) => e !== item);
+        console.log('removing ', item);
+        console.log('friends = ', friends);
         this.setState({ isLoading: true }, () => {
-
             axios.post(
-                '/watchlist/add-media',
+                '/user/update-friends',
                 {
-                    user,
-                    watchlist,
-                    tmdb_id: media.id,
+                    friends,
+                    username: user.username,
                 }
             )
                 .then(() => {
@@ -46,7 +42,7 @@ class AddMediaButton extends Component {
 
         return (
             <Button
-                variant="primary"
+                variant="danger"
                 disabled={isLoading}
                 onClick={!isLoading ? this.handleClick : null}
             >
@@ -54,10 +50,10 @@ class AddMediaButton extends Component {
                     ? <Spinner animation="border" role="status">
                         <span className="sr-only">Loading...</span>
                     </Spinner>
-                    : '+'}
+                    : '-'}
             </Button>
         );
     }
 }
 
-export default AddMediaButton;
+export default RemoveFriendButton;
