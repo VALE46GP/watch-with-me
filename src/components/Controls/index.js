@@ -70,16 +70,17 @@ const Controls = (props) => {
                 <Nav className="mr-auto">
                     <Nav.Link onClick={() => toggleMode('MODE/WATCHLIST')}>Watchlist</Nav.Link>
                     <Nav.Link onClick={() => toggleMode('MODE/ADD_NEW')}>Add New</Nav.Link>
-                    <NavDropdown title={user.username} id="basic-nav-dropdown">
+                    <NavDropdown title={user.username} id="basic-nav-dropdown" variant="dark">
                         <NavDropdown.Item href="">My Account</NavDropdown.Item>
                         <NavDropdown.Item onClick={() => setActiveModal('friends')}>My Friends</NavDropdown.Item>
                     </NavDropdown>
                 </Nav>
-                <Form inline
-                      onSubmit={e => {
-                          e.preventDefault();
-                          handleChange();
-                      }}
+                <Form
+                    inline
+                    onSubmit={e => {
+                        e.preventDefault();
+                        handleChange();
+                    }}
                 >
                     <FormControl
                         value={searchInput || ''}

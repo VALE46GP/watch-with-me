@@ -8,6 +8,7 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import FriendsListItem from '../FriendsListItem/container.js';
+import axios from 'axios';
 import './index.css';
 
 import Navbar from 'react-bootstrap/Navbar';
@@ -21,13 +22,34 @@ class Friends extends Component {
         this.state = {
             username:'',
             mode: 'friends',    // 'friends', 'addNew', 'detailsModal'
-            filtered: [],
+            friends: [],
         };
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
     };
 
+    componentDidMount() {
+        const { user } = this.props;
+        this.setState({ friends: user.friends })
+    };
+
     toggleMode = (value) => {
-        this.setState({ mode: value });
+        const { user } = this.props;
+        switch (value) {
+            case 'friends':
+                this.setState({
+                    mode: value,
+                    friends: user.friends
+                });
+                break;
+            case 'addNew':
+                this.setState({
+                    mode: value,
+                    friends: []
+                });
+                break;
+            default:
+                break;
+        }
     };
 
     handleUsernameChange = (event) => {
@@ -38,33 +60,57 @@ class Friends extends Component {
         }, () => {
             if (mode === 'friends') {
                 this.setState({
-                    filtered: user.friends.filter(n => n.includes(username)),
+                    friends: user.friends.filter(n => n.includes(username)),
                 })
             } else if (mode === 'addNew') {
-                // search db
-                // set filtered with results
+                axios.get('/watchlist', {
+                    params: {
+                        username: username,
+                    }
+                })
+                    .then((res) => {
+                        this.setState({ filtered: res.body });
+                    })
             }
         });
     };
 
     render() {
-        const { username, mode, filtered } = this.state;
+        const { friends } = this.state;
         const { user, setActiveModal } = this.props;
-        let list;
-        switch (mode) {
-            case 'friends':
-                list =
-                    <div className="friends-list">
-                        { user.friends.map(item => <FriendsListItem
-                            key={item}
-                            item={item}
-                            isFriend={true}
-                        />) }
-                    </div>;
-                break;
-            default:
-                break;
-        }
+        // let list;
+        // switch (mode) {
+        //     case 'friends':
+        //         list =
+        //             <div className="friends-list">
+        //                 { user.friends.map(item => <FriendsListItem
+        //                     key={item}
+        //                     item={item}
+        //                     isFriend={true}
+        //                 />) }
+        //             </div>;
+        //         break;
+        //     case 'addNew':
+        //         list =
+        //             <div className="friends-list">
+        //                 { axios.get('/watchlist', {
+        //                     params: {
+        //                         username: username,
+        //                     }
+        //                 })
+        //                     .then((res) => {
+        //                         res.body.map(item => <FriendsListItem
+        //                             key={item}
+        //                             item={item}
+        //                             isFriend={user.friends.some(n => n === item)}
+        //                         />)
+        //                     })
+        //                 }
+        //             </div>;
+        //         break;
+        //     default:
+        //         break;
+        // }
 
         return (
             <div>
@@ -73,8 +119,6 @@ class Friends extends Component {
                     size="lg"
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
-                    bg="dark"
-                    variant="dark"
                 >
                     <Modal.Body
                         bsPrefix="friends-modal"
@@ -100,7 +144,13 @@ class Friends extends Component {
                                             >Add New</ToggleButton>
                                         </ToggleButtonGroup>
                                     </ButtonToolbar>
-                                    <Form inline>
+                                    <Form
+                                        inline
+                                        onSubmit={e => {
+                                            e.preventDefault();
+                                            this.handleUsernameChange();
+                                        }}
+                                    >
                                         <FormControl
                                             type="text"
                                             placeholder="Search"
@@ -115,7 +165,13 @@ class Friends extends Component {
                                     onClick={() => setActiveModal('none')}
                                 >X</Button>
                             </Navbar>
-                            {list}
+                            <div className="friends-list">
+                                { friends.map(item => <FriendsListItem
+                                    key={item}
+                                    item={item}
+                                    isFriend={ user.friends.some(n => n === item) }
+                                />) }
+                            </div>
                         </div>
                     </Modal.Body>
                 </Modal>

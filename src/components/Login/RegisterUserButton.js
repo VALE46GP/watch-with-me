@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import hash from '../../helperFunctions/hash'
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
-import axios from "axios";
+import axios from 'axios';
 
 class RegisterUserButton extends Component {
     constructor(props, context) {
