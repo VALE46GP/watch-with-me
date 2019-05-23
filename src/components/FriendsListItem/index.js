@@ -25,7 +25,7 @@ const FriendsListItem = (props) => {
 
     return (
         <div className="friends-list-item" key={key}>
-            <h2 className="friends-list-item-username">{item}</h2>
+            <h4 className="friends-list-item-username">{item}</h4>
             <div className="add-remove-friend-button">
                 {addRemoveButton}
             </div>
