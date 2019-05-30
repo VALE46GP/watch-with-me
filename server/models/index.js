@@ -139,6 +139,24 @@ const login = (err, data, res) => {
     });
 };
 
+const searchUsers = (err, data, res) => {
+    User.find(
+        { username: /data.username/ },
+        null,
+        (err, results) => {
+            console.log('data = ', data);
+            if (err) {
+                return console.error(err);
+            } else if (!results) {
+                return console.log('Error updating friends in db');
+            } else {
+                console.log('Successfully updated friends db.');
+                res.send(results);
+            }
+        }
+    );
+};
+
 const updateFriends = (err, data, res) => {
     User.findOneAndUpdate(
         { username: data.username },
@@ -162,5 +180,6 @@ module.exports.getUser = getUser;
 module.exports.addMedia = addMedia;
 module.exports.removeMedia = removeMedia;
 module.exports.registerUser = registerUser;
-module.exports.updateFriends = updateFriends;
 module.exports.login = login;
+module.exports.searchUsers = searchUsers;
+module.exports.updateFriends = updateFriends;

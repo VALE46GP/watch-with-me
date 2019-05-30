@@ -50,6 +50,10 @@ handle().then((db, err) => {
         });
     });
 
+    app.get('user/search-users', (req, res) => {
+        model.searchUsers(err, req.body, res);
+    });
+
     app.post('/watchlist/add-media', (req, res) => {
         model.addMedia(null, req.body);
         logger('db', err || 'addMedia POST successful: ', req.body);
