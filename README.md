@@ -80,9 +80,11 @@ Serves the app through a proxy server
 
 ## Screenshots (Phase 0)
 
-![watchlist](./screenshots/phase0-watchlist.jpg)
+![login](./screenshots/phase0-login.png)
 
-![search](./screenshots/phase0-search.jpg)
+![watchlist](./screenshots/phase0-watchlist.png)
+
+![search](./screenshots/phase0-search.png)
 
 ## Thoughts for Future Improvements
 
